@@ -1,33 +1,51 @@
 # fdtrace
 
+# TODO
+
+- [ ] Setup github actions CI/CD
+
 ## Prerequisites
 
-1. stable rust toolchains: `rustup toolchain install stable`
-1. nightly rust toolchains: `rustup toolchain install nightly --component rust-src`
-1. (if cross-compiling) rustup target: `rustup target add ${ARCH}-unknown-linux-musl`
-1. (if cross-compiling) LLVM: (e.g.) `brew install llvm` (on macOS)
-1. (if cross-compiling) C toolchain: (e.g.) [`brew install filosottile/musl-cross/musl-cross`](https://github.com/FiloSottile/homebrew-musl-cross) (on macOS)
-1. bpf-linker: `cargo install bpf-linker` (`--no-default-features` on macOS)
+1. Nightly Rust toolchain
+  - `rustup toolchain install nightly`
+  - `rustup component add rust-src`
+2. LLVM TODO
+3. `cargo install bpf-linker --no-default-features`
 
-## Build & Run
 
-Use `cargo build`, `cargo check`, etc. as normal. Run your program with:
+## Errors
 
-```shell
-cargo run --release --config 'target."cfg(all())".runner="sudo -E"'
+
+### Failed to create map
+
+```
+Finished `release` profile [optimized] target(s) in 16.38s
+ Running `/home/not-matthias/Documents/technical/git/syscall-tracer/target/release/fdtrace`
+[WARN  fdtrace] cannot remove mem lock
+Error: map error: failed to create map `AYA_LOG_BUF` with code -1
+
+Caused by:
+0: failed to create map `AYA_LOG_BUF` with code -1
+1: Operation not permitted (os error 1)
 ```
 
-Cargo build scripts are used to automatically build the eBPF correctly and include it in the
-program.
 
-## Cross-compiling on macOS
-
-Cross compilation should work on both Intel and Apple Silicon Macs.
-
-```shell
-CC=${ARCH}-linux-musl-gcc cargo build --package fdtrace --release \
-  --target=${ARCH}-unknown-linux-musl \
-  --config=target.${ARCH}-unknown-linux-musl.linker=\"${ARCH}-linux-musl-gcc\"
+Run with sudo:
 ```
-The cross-compiled program `target/${ARCH}-unknown-linux-musl/release/fdtrace` can be
-copied to a Linux server or VM and run there.
+[16:22] not-matthias:fdtrace (main)> sudo RUST_LOG=debug ../target/release/fdtrace
+Waiting for Ctrl-C...
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+[INFO  fdtrace] received a packet
+^CExiting...
+[16:22] not-matthias:fdtrace (main)>
+```

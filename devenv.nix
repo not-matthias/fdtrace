@@ -24,9 +24,4 @@ in {
   };
 
   env.RUST_LOG = "info";
-
-  # See full reference at https://devenv.sh/reference/options/
-  #
-  #
-  # LLVM_SYS_180_PREFIX=$(brew --prefix llvm) cargo install --no-default-features bpf-linker
 }

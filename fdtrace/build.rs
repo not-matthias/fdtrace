@@ -1,3 +1,6 @@
+use cargo_metadata::{
+    Artifact, CompilerMessage, Message, Metadata, MetadataCommand, Package, Target,
+};
 use std::{
     env, fs,
     io::{BufRead as _, BufReader},
@@ -5,13 +8,9 @@ use std::{
     process::{Child, Command, Stdio},
 };
 
-use cargo_metadata::{
-    Artifact, CompilerMessage, Message, Metadata, MetadataCommand, Package, Target,
-};
-
-/// This crate has a runtime dependency on artifacts produced by the `fdtrace-ebpf` crate.
-/// This would be better expressed as one or more [artifact-dependencies][bindeps] but issues such
-/// as:
+/// This crate has a runtime dependency on artifacts produced by the
+/// `fdtrace-ebpf` crate. This would be better expressed as one or more
+/// [artifact-dependencies][bindeps] but issues such as:
 ///
 /// * https://github.com/rust-lang/cargo/issues/12374
 /// * https://github.com/rust-lang/cargo/issues/12375
@@ -50,10 +49,11 @@ fn main() {
         let Package { manifest_path, .. } = ebpf_package;
         let ebpf_dir = manifest_path.parent().unwrap();
 
-        // We have a build-dependency on `fdtrace-ebpf`, so cargo will automatically rebuild us
-        // if `fdtrace-ebpf`'s *library* target or any of its dependencies change. Since we
-        // depend on `fdtrace-ebpf`'s *binary* targets, that only gets us half of the way. This
-        // stanza ensures cargo will rebuild us on changes to the binaries too, which gets us the
+        // We have a build-dependency on `fdtrace-ebpf`, so cargo will automatically
+        // rebuild us if `fdtrace-ebpf`'s *library* target or any of its
+        // dependencies change. Since we depend on `fdtrace-ebpf`'s *binary*
+        // targets, that only gets us half of the way. This stanza ensures cargo
+        // will rebuild us on changes to the binaries too, which gets us the
         // rest of the way.
         println!("cargo:rerun-if-changed={}", ebpf_dir.as_str());
 

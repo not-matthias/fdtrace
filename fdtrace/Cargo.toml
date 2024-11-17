@@ -6,7 +6,6 @@ edition = "2021"
 [dependencies]
 fdtrace-common = { path = "../fdtrace-common", features = ["user"] }
 
-rlimit = "0.9.1"
 anyhow = { workspace = true, default-features = true }
 aya = { workspace = true }
 aya-log = { workspace = true }

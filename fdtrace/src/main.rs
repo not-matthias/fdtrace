@@ -1,13 +1,13 @@
 use aya::programs::KProbe;
 #[rustfmt::skip]
 use log::{debug, warn};
-use tokio::signal;
-use rlimit::Resource;
-use aya::programs::XdpFlags;
-use aya::programs::Xdp;
+use aya::{
+    include_bytes_aligned,
+    programs::{Xdp, XdpFlags},
+    Bpf,
+};
 use aya_log::BpfLogger;
-use aya::Bpf;
- use aya::include_bytes_aligned;
+use tokio::signal;
 
 // https://github.com/aurae-runtime/aurae/blob/1d62cb044fc973b3b8006466c31ef3f35ecbca63/auraed/src/ebpf/tracepoint/tracepoint_program.rs
 
@@ -15,15 +15,8 @@ use aya::Bpf;
 async fn main() -> anyhow::Result<()> {
     env_logger::init();
 
-    if !Resource::MEMLOCK
-            .set(rlimit::INFINITY, rlimit::INFINITY)
-            .is_ok()
-        {
-            warn!("cannot remove mem lock");
-        }
-
-    // Bump the memlock rlimit. This is needed for older kernels that don't use the
-    // new memcg based accounting, see https://lwn.net/Articles/837122/
+    // Bump the memlock rlimit. This is needed for older kernels that don't
+    // use the new memcg based accounting, see https://lwn.net/Articles/837122/
     let rlim = libc::rlimit {
         rlim_cur: libc::RLIM_INFINITY,
         rlim_max: libc::RLIM_INFINITY,
@@ -33,8 +26,8 @@ async fn main() -> anyhow::Result<()> {
         debug!("remove limit on locked memory failed, ret is: {}", ret);
     }
 
-    // This will include your eBPF object file as raw bytes at compile-time and load it at runtime. This approach is recommended for most real-world use cases. If you would like to specify the eBPF program at runtime rather than at compile-time, you can reach for `Bpf::load_file` instead.
-
+    // Include the compiled BPF program in the binary.
+    //
     let mut ebpf = Bpf::load(include_bytes_aligned!(
         "../../target/bpfel-unknown-none/release/fdtrace"
     ))?;
