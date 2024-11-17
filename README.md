@@ -13,6 +13,13 @@
 3. `cargo install bpf-linker --no-default-features`
 
 
+## Documentation
+
+For fdtrace-ebpf:
+```
+cargo doc --open --target x86_64-unknown-linux-gnu
+```
+
 ## Errors
 
 
