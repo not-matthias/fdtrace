@@ -1,0 +1,14 @@
+#!/usr/bin/env bpftrace
+
+
+tracepoint:raw_syscalls:sys_enter
+{
+  $syscall_id = args->id;
+  if ($syscall_id == 2) {
+      printf("Syscall: openat, PID: %d, Command: %s\n", pid, comm);
+    printf("open syscall called\n");
+    printf("Syscall: open, PID: %d, Command: %s, Path: %s, Flags: %d, Mode: %o\n",
+           pid, comm, str(args->args[0]), args->args[1], args->args[2]);
+  }
+}
+

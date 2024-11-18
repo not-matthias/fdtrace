@@ -2,6 +2,10 @@
 
 # TODO
 
+sudo bpftrace my_script.bt -f json
+https://lib.rs/crates/btetto
+https://chatgpt.com/c/673a377a-dca0-800a-bd37-1d642bc31985
+
 - [ ] Setup github actions CI/CD
 
 ## Prerequisites
@@ -14,6 +18,7 @@
 
 
 ## Documentation
+https://docs.aya-rs.dev/aya_ebpf/
 
 For fdtrace-ebpf:
 ```

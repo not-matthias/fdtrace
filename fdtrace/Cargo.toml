@@ -3,6 +3,10 @@ name = "fdtrace"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = []
+build-ebpf = []
+
 [dependencies]
 fdtrace-common = { path = "../fdtrace-common", features = ["user"] }
 
@@ -15,6 +19,8 @@ log = { workspace = true }
 tokio = { workspace = true, features = ["macros", "sync", "rt", "rt-multi-thread", "net", "signal"] }
 bytes = "1.8.0"
 structopt = "0.3.26"
+serde_json = "1.0.133"
+json = "0.12.4"
 
 [build-dependencies]
 cargo_metadata = { workspace = true }

@@ -1,0 +1,53 @@
+#!/usr/bin/bpftrace
+
+tracepoint:syscalls:sys_enter_open {
+    printf("open;%s;%d|", str(args->filename), args->flags);
+}
+
+tracepoint:syscalls:sys_enter_openat {
+    printf("openat;%d;%s;%d|", args->dfd, str(args->filename), args->flags);
+}
+
+tracepoint:syscalls:sys_enter_openat {
+    printf("openat;%d;%s;%d|", args->dfd, str(args->filename), args->flags);
+}
+
+tracepoint:syscalls:sys_enter_close {
+    printf("close;%d|", args->fd);
+}
+
+tracepoint:syscalls:sys_enter_read {
+    printf("read;%d;%lu|", args->fd, args->count);
+}
+
+tracepoint:syscalls:sys_enter_write {
+    printf("write;%d;%lu|", args->fd, args->count);
+}
+
+tracepoint:syscalls:sys_enter_unlink {
+    printf("unlink;%s|", str(args->pathname));
+}
+
+tracepoint:syscalls:sys_enter_unlinkat {
+    printf("unlinkat;%d;%s;%d|", args->dfd, str(args->pathname), args->flag);
+}
+
+tracepoint:syscalls:sys_enter_rename {
+    printf("rename;%s;%s|", str(args->oldname), str(args->newname));
+}
+
+tracepoint:syscalls:sys_enter_renameat {
+    printf("renameat;%d;%s;%d;%s|", args->olddfd, str(args->oldname), args->newdfd, str(args->newname));
+}
+
+tracepoint:syscalls:sys_enter_mkdir {
+    printf("mkdir;%s;%d|", str(args->pathname), args->mode);
+}
+
+tracepoint:syscalls:sys_enter_mkdirat {
+    printf("mkdirat;%d;%s;%d|", args->dfd, str(args->pathname), args->mode);
+}
+
+tracepoint:syscalls:sys_enter_rmdir {
+    printf("rmdir;%s|", str(args->pathname));
+}

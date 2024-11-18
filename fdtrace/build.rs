@@ -8,6 +8,9 @@ use std::{
     process::{Child, Command, Stdio},
 };
 
+#[cfg(not(feature = "build-ebpf"))]
+fn main() {}
+
 /// This crate has a runtime dependency on artifacts produced by the
 /// `fdtrace-ebpf` crate. This would be better expressed as one or more
 /// [artifact-dependencies][bindeps] but issues such as:
@@ -19,6 +22,7 @@ use std::{
 /// prevent their use for the time being.
 ///
 /// [bindeps]: https://doc.rust-lang.org/nightly/cargo/reference/unstable.html?highlight=feature#artifact-dependencies
+#[cfg(feature = "build-ebpf")]
 fn main() {
     let Metadata { packages, .. } = MetadataCommand::new().no_deps().exec().unwrap();
     let ebpf_package = packages

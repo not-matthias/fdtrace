@@ -13,6 +13,7 @@ in {
     unstable.llvm_19
 
     bpftool
+    bpftrace
   ];
 
   # https://devenv.sh/languages/
