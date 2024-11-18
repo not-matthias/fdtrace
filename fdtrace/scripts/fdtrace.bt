@@ -10,7 +10,7 @@ tracepoint:syscalls:sys_enter_execve {
 }
 
 tracepoint:syscalls:sys_enter_open {
-    printf("%lld;%d;%d;open;%s;%d\n", nsecs, tid, pid, str(args.filename), args->flags);
+    printf("%lld;%d;%d;open;%s;%d\n", nsecs, tid, pid, str(args->filename), args->flags);
 }
 
 tracepoint:syscalls:sys_exit_open {
