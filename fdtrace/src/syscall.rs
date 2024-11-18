@@ -5,7 +5,6 @@
 /// - File removal: unlink, unlinkat, rmdir.
 /// - File renaming: rename, renameat.
 /// - Directory creation: mkdir, mkdirat.
-// TODO: Move this to the common crate
 #[derive(Debug, PartialEq)]
 #[rustfmt::skip]
 pub enum Syscall {

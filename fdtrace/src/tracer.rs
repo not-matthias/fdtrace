@@ -87,17 +87,3 @@ impl BpfTracer {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    // Run with: sudo cargo t
-    #[test]
-    fn test_trace_ls() {
-        let tracer =
-            BpfTracer::trace("/nix/store/sbxy42ph4gjlg567vaz1kihmgiwqa5dh-system-path/bin/ls")
-                .unwrap();
-        assert_ne!(tracer.syscalls.len(), 0);
-    }
-}

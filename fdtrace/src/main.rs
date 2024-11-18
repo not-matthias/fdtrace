@@ -1,12 +1,23 @@
 use crate::tracer::BpfTracer;
-use args::Opt;
+use std::path::PathBuf;
 use structopt::StructOpt;
 
-pub mod args;
+#[derive(Debug, StructOpt)]
+#[structopt(name = "fdtrace", about = "File syscall tracer")]
+pub struct Opt {
+    /// Activate debug mode
+    // short and long flags (-d, --debug) will be deduced from the field's name
+    #[structopt(short, long)]
+    pub debug: bool,
+
+    /// Input file
+    #[structopt(parse(from_os_str))]
+    pub input: PathBuf,
+}
+
 pub mod syscall;
 pub mod tracer;
 
-// sudo -E cargo rr ../target/release/example
 fn main() -> anyhow::Result<()> {
     env_logger::init();
 

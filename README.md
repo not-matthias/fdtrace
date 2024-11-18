@@ -1,63 +1,19 @@
 # fdtrace
 
-# TODO
-
-sudo bpftrace my_script.bt -f json
-https://lib.rs/crates/btetto
-https://chatgpt.com/c/673a377a-dca0-800a-bd37-1d642bc31985
-
-- [ ] Setup github actions CI/CD
-
 ## Prerequisites
 
-1. Nightly Rust toolchain
-  - `rustup toolchain install nightly`
-  - `rustup component add rust-src`
-2. LLVM TODO
-3. `cargo install bpf-linker --no-default-features`
+TODO
 
-
-## Documentation
-https://docs.aya-rs.dev/aya_ebpf/
-
-For fdtrace-ebpf:
-```
-cargo doc --open --target x86_64-unknown-linux-gnu
-```
-
-## Errors
-
-
-### Failed to create map
+## Run
 
 ```
-Finished `release` profile [optimized] target(s) in 16.38s
- Running `/home/not-matthias/Documents/technical/git/syscall-tracer/target/release/fdtrace`
-[WARN  fdtrace] cannot remove mem lock
-Error: map error: failed to create map `AYA_LOG_BUF` with code -1
-
-Caused by:
-0: failed to create map `AYA_LOG_BUF` with code -1
-1: Operation not permitted (os error 1)
+> cd fdtrace
+> sudo -E cargo rr --help
+> sudo -E cargo rr --debug (whereis ls)
 ```
 
-
-Run with sudo:
+To run the example:
 ```
-[16:22] not-matthias:fdtrace (main)> sudo RUST_LOG=debug ../target/release/fdtrace
-Waiting for Ctrl-C...
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-[INFO  fdtrace] received a packet
-^CExiting...
-[16:22] not-matthias:fdtrace (main)>
+> cargo br
+> sudo -E cargo rr target/release/example
 ```
