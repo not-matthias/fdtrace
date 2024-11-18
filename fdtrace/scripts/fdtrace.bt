@@ -1,53 +1,90 @@
 #!/usr/bin/bpftrace
 
+// TODO: Also verify the tid
+
+tracepoint:syscalls:sys_enter_execve {
+    printf("%d;%d;execve;%s\n", pid, pid, str(args->filename));
+}
+
 tracepoint:syscalls:sys_enter_open {
-    printf("open;%s;%d|", str(args->filename), args->flags);
+    printf("%d;open;%s;%d\n", pid, str(args.filename), args->flags);
 }
 
-tracepoint:syscalls:sys_enter_openat {
-    printf("openat;%d;%s;%d|", args->dfd, str(args->filename), args->flags);
-}
-
-tracepoint:syscalls:sys_enter_openat {
-    printf("openat;%d;%s;%d|", args->dfd, str(args->filename), args->flags);
+tracepoint:syscalls:sys_exit_open {
+    printf("%d;open_exit;%d\n", pid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_close {
-    printf("close;%d|", args->fd);
+    printf("%d;close;%d\n", pid, args->fd);
+}
+
+tracepoint:syscalls:sys_exit_close {
+    printf("%d;close_exit;%d\n", pid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_read {
-    printf("read;%d;%lu|", args->fd, args->count);
+    printf("%d;read;%d;%lu\n", pid, args->fd, args->count);
+}
+
+tracepoint:syscalls:sys_exit_read {
+    printf("%d;read_exit;%d\n", pid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_write {
-    printf("write;%d;%lu|", args->fd, args->count);
+    printf("%d;write;%d;%lu\n", pid, args->fd, args->count);
+}
+
+tracepoint:syscalls:sys_exit_write {
+    printf("%d;write_exit;%d\n", pid, args->ret);
+}
+
+
+//
+//
+
+
+tracepoint:syscalls:sys_enter_openat {
+    printf("%d;openat;%d;%s;%d\n", pid, args->dfd, str(args->filename), args->flags);
+}
+
+tracepoint:syscalls:sys_exit_openat {
+    printf("%d;openat_exit;%d\n", pid, args->ret);
+}
+
+tracepoint:syscalls:sys_enter_openat {
+    printf("%d;openat;%d;%s;%d\n", pid, args->dfd, str(args->filename), args->flags);
 }
 
 tracepoint:syscalls:sys_enter_unlink {
-    printf("unlink;%s|", str(args->pathname));
+    printf("%d;unlink;%s\n", pid, str(args->pathname));
 }
 
 tracepoint:syscalls:sys_enter_unlinkat {
-    printf("unlinkat;%d;%s;%d|", args->dfd, str(args->pathname), args->flag);
+    printf("%d;unlinkat;%d;%s;%d\n", pid, args->dfd, str(args->pathname), args->flag);
 }
 
 tracepoint:syscalls:sys_enter_rename {
-    printf("rename;%s;%s|", str(args->oldname), str(args->newname));
+    printf("%d;rename;%s;%s\n", pid, str(args->oldname), str(args->newname));
 }
 
 tracepoint:syscalls:sys_enter_renameat {
-    printf("renameat;%d;%s;%d;%s|", args->olddfd, str(args->oldname), args->newdfd, str(args->newname));
+    printf("%d;renameat;%d;%s;%d;%s\n", pid, args->olddfd, str(args->oldname), args->newdfd, str(args->newname));
 }
 
 tracepoint:syscalls:sys_enter_mkdir {
-    printf("mkdir;%s;%d|", str(args->pathname), args->mode);
+    printf("%d;mkdir;%s;%d\n", pid, str(args->pathname), args->mode);
 }
 
 tracepoint:syscalls:sys_enter_mkdirat {
-    printf("mkdirat;%d;%s;%d|", args->dfd, str(args->pathname), args->mode);
+    printf("%d;mkdirat;%d;%s;%d\n", pid, args->dfd, str(args->pathname), args->mode);
 }
 
 tracepoint:syscalls:sys_enter_rmdir {
-    printf("rmdir;%s|", str(args->pathname));
+    printf("%d;rmdir;%s\n", pid, str(args->pathname));
+}
+
+
+// creat 15
+tracepoint:syscalls:sys_enter_creat {
+    printf("%d;creat;%s;%d\n", pid, str(args->pathname), args->mode);
 }

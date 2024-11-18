@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["fdtrace", "fdtrace-common", "fdtrace-ebpf"]
+members = [ "example","fdtrace", "fdtrace-common", "fdtrace-ebpf"]
 default-members = ["fdtrace", "fdtrace-common"]
 
 [workspace.dependencies]

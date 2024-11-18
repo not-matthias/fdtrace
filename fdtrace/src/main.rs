@@ -1,17 +1,26 @@
-mod args;
-mod bpftrace;
+use crate::tracer::BpfTracer;
+use args::Opt;
+use structopt::StructOpt;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
+pub mod args;
+pub mod syscall;
+pub mod tracer;
+
+// sudo -E cargo rr ../target/release/example
+fn main() -> anyhow::Result<()> {
     env_logger::init();
 
-    // let target = Box::new(std::fs::File::create("trace.txt").expect("Can't create
-    // file")); env_logger::Builder::new()
-    //     .target(env_logger::Target::Pipe(target))
-    //     .filter(None, log::LevelFilter::Info)
-    //     .init();
+    let args = Opt::from_args();
 
-    // let args = Opt::from_args();
+    // 1. Trace the target program
+    //
+    let tracer = BpfTracer::trace(&args.input).unwrap();
+    if args.debug {
+        tracer.debug_print();
+    }
+
+    // 2. Analyze the trace
+    //
 
     Ok(())
 }

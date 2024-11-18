@@ -2,5 +2,5 @@
 
 Run with:
 ```
-sudo bpftrace open.bt
+sudo bpftrace -c ../target/release/example -o output.txt scripts/fdtrace.bt
 ```
