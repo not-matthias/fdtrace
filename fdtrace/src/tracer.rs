@@ -1,6 +1,7 @@
 use crate::syscall::{RawSyscall, Syscall};
 use std::path::Path;
 use tempfile::NamedTempFile;
+use std::io::Write;
 
 pub struct BpfTracer {
     syscalls: Vec<Syscall>,
@@ -8,14 +9,19 @@ pub struct BpfTracer {
 
 impl BpfTracer {
     pub fn trace(program: &Path) -> anyhow::Result<Self> {
+        let script = {
+            let mut file = NamedTempFile::new()?;
+            writeln!(file, "{}", include_str!("../scripts/fdtrace.bt"))?;
+            file
+        };
+
         let tmpfile = NamedTempFile::new()?;
         let cmd = std::process::Command::new("bpftrace")
             .arg("-c")
             .arg(program)
             .arg("-o")
             .arg(tmpfile.path())
-            // TODO: Fix this path
-            .arg("scripts/fdtrace.bt")
+            .arg(script.path())
             .output()?;
 
         if !cmd.status.success() {
