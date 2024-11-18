@@ -19,4 +19,4 @@ jobs:
         with:
           cache-all-crates: "true"
           
-      - run: sudo cargo test --package fdtrace
+      - run: sudo -E cargo test --package fdtrace
