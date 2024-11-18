@@ -1,4 +1,4 @@
-use crate::syscall::Syscall;
+use crate::syscall::{RawSyscall, Syscall};
 use std::path::Path;
 use tempfile::NamedTempFile;
 
@@ -28,43 +28,32 @@ impl BpfTracer {
     }
 
     pub fn parse_trace(trace: &str) -> anyhow::Result<Self> {
-        let parse_pid = |line: &str| {
-            line.split(';')
-                .next()
-                .and_then(|p: &str| p.parse::<u32>().ok())
-                .unwrap_or_default()
-        };
-
         let mut target_pid = None;
-        let mut syscalls = Vec::new();
-        for line in trace.lines() {
-            let Some(target_pid) = target_pid else {
-                // The output contains many other processes logs as well, which is not what we
-                // want. We need to find the 'execve' syscall to find the process id of our
-                // target process.
-                //
-                if line.contains("execve") {
-                    target_pid = Some(parse_pid(line));
-                }
 
+        let mut syscalls = Vec::new();
+        for line in trace.lines().skip(1) {
+            let syscall = Syscall::from_parts(line).unwrap();
+
+            // The output contains many other processes logs as well, which is not what we
+            // want. We need to find the 'execve' syscall to find the process id of our
+            // target process.
+            //
+            let Some(target_pid) = target_pid else {
+                if let RawSyscall::Execve { path } = &syscall.raw {
+                    log::info!("Target process: {:?}", path);
+                    target_pid = Some(syscall.pid);
+                }
                 continue;
             };
 
             // After we have our target_pid, we can filter out all the other logs that
             // aren't related to this process.
             //
-            if parse_pid(line) != target_pid {
+            if syscall.pid != target_pid {
                 continue;
             }
 
-            let parts = line.split(';').skip(1).collect::<Vec<_>>().join(";");
-
-            if let Some(syscall) = Syscall::from_parts(&parts) {
-                syscalls.push(syscall);
-            } else {
-                // TODO: Return as Result<_, _>
-                log::error!("Failed to parse syscall: {}", parts);
-            }
+            syscalls.push(syscall);
         }
 
         Ok(Self { syscalls })

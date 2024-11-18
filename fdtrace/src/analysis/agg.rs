@@ -1,4 +1,4 @@
-use crate::syscall::Syscall;
+use crate::syscall::{RawSyscall, Syscall};
 use std::collections::HashMap;
 
 const FD_STDIN: i32 = 0;
@@ -127,24 +127,24 @@ impl Agg {
         //
         let mut cur_session = None;
 
-        let mut iter = syscalls.iter().peekable();
+        let mut iter = syscalls.iter().map(|s| &s.raw).peekable();
         while let Some(call) = iter.next() {
             match call {
-                Syscall::OpenAt { filename, .. } => {
-                    let Some(Syscall::OpenAtExit { fd }) = iter.peek() else {
+                RawSyscall::OpenAt { filename, .. } => {
+                    let Some(RawSyscall::OpenAtExit { fd }) = iter.peek() else {
                         panic!("OpenAt syscall not followed by OpenAtExit")
                     };
 
                     cur_session = Some((fd, filename.clone(), FileSession::default()));
                 }
-                Syscall::Open { filename: path, .. } => {
-                    let Some(Syscall::OpenExit { fd }) = iter.peek() else {
+                RawSyscall::Open { filename: path, .. } => {
+                    let Some(RawSyscall::OpenExit { fd }) = iter.peek() else {
                         panic!("Open syscall not followed by open exit")
                     };
 
                     cur_session = Some((fd, path.clone(), FileSession::default()));
                 }
-                Syscall::Read { fd: read_fd, .. } => {
+                RawSyscall::Read { fd: read_fd, .. } => {
                     if *read_fd == FD_STDIN {
                         continue;
                     }
@@ -153,7 +153,7 @@ impl Agg {
                         cur_session.as_mut().expect("Can't read without open");
                     assert_eq!(*open_fd, read_fd);
 
-                    let Some(Syscall::ReadExit { read }) = iter.peek() else {
+                    let Some(RawSyscall::ReadExit { read }) = iter.peek() else {
                         panic!("Read syscall not followed by read exit")
                     };
 
@@ -167,7 +167,7 @@ impl Agg {
                         session.events.push(FileEvent::Read(*read as usize));
                     }
                 }
-                Syscall::Write { fd: write_fd, .. } => {
+                RawSyscall::Write { fd: write_fd, .. } => {
                     if *write_fd == FD_STDOUT || *write_fd == FD_STDERR {
                         continue;
                     }
@@ -176,7 +176,7 @@ impl Agg {
                         cur_session.as_mut().expect("Can't write without open");
                     assert_eq!(*open_fd, write_fd);
 
-                    let Some(Syscall::WriteExit { written }) = iter.peek() else {
+                    let Some(RawSyscall::WriteExit { written }) = iter.peek() else {
                         panic!("Write syscall not followed by write exit")
                     };
 
@@ -184,7 +184,7 @@ impl Agg {
                         session.events.push(FileEvent::Write(*written as usize));
                     }
                 }
-                Syscall::Close { fd: close_fd } => {
+                RawSyscall::Close { fd: close_fd } => {
                     if *close_fd == FD_STDIN || *close_fd == FD_STDOUT || *close_fd == FD_STDERR {
                         continue;
                     }

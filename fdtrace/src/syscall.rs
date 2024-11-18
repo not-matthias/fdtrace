@@ -1,3 +1,43 @@
+use std::ops::{Deref, DerefMut};
+
+#[derive(Debug, PartialEq)]
+pub struct Syscall {
+    pub ts: i64,
+    pub pid: i32,
+    pub tid: i32,
+    pub raw: RawSyscall,
+}
+
+impl Syscall {
+    pub fn from_parts(data: &str) -> Option<Self> {
+        let parts = data.split(";").into_iter();
+        Self::from_parts_iter(parts)
+    }
+
+    pub fn from_parts_iter<'a>(mut parts: impl Iterator<Item = &'a str>) -> Option<Self> {
+        Some(Self {
+            ts: parts.next()?.parse().ok()?,
+            pid: parts.next()?.parse().ok()?,
+            tid: parts.next()?.parse().ok()?,
+            raw: RawSyscall::from_parts_iter(parts)?,
+        })
+    }
+}
+
+impl Deref for Syscall {
+    type Target = RawSyscall;
+
+    fn deref(&self) -> &Self::Target {
+        &self.raw
+    }
+}
+
+impl DerefMut for Syscall {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.raw
+    }
+}
+
 /// # Covered syscalls
 ///
 /// - File creation and opening: open, openat.
@@ -7,7 +47,7 @@
 /// - Directory creation: mkdir, mkdirat.
 #[derive(Debug, PartialEq)]
 #[rustfmt::skip]
-pub enum Syscall {
+pub enum RawSyscall {
     Open { filename: String, flags: i32 },
     OpenExit { fd: i32 },
     OpenAt { dirfd: i32, filename: String, flags: i32 },
@@ -18,17 +58,10 @@ pub enum Syscall {
     ReadExit { read: i32 },
     Write { fd: i32, count: usize },
     WriteExit { written: i32 },
-
-    Unlink { pathname: String },
-    UnlinkAt { dirfd: i32, pathname: String, flags: i32 },
-    Rename { oldname: String, newname: String },
-    RenameAt { olddfd: i32, oldname: String, newdfd: i32, newname: String },
-    Mkdir { pathname: String, mode: i32 },
-    MkdirAt { dirfd: i32, pathname: String, mode: i32 },
-    Rmdir { pathname: String },
+    Execve { path: String },
 }
 
-impl Syscall {
+impl RawSyscall {
     pub fn from_parts(data: &str) -> Option<Self> {
         let parts = data.split(";").into_iter();
         Self::from_parts_iter(parts)
@@ -38,7 +71,7 @@ impl Syscall {
     pub fn from_parts_iter<'a>(mut parts: impl Iterator<Item = &'a str>) -> Option<Self> {
         macro_rules! parse_syscall {
             ($syscall:ident, $($field:ident),*) => {
-                Some(Syscall::$syscall {
+                Some(RawSyscall::$syscall {
                     $($field: parts.next()?.parse().ok()?,)*
                 })
             };
@@ -55,13 +88,7 @@ impl Syscall {
             "read_exit" => parse_syscall!(ReadExit, read),
             "write" => parse_syscall!(Write, fd, count),
             "write_exit" => parse_syscall!(WriteExit, written),
-            "unlink" => parse_syscall!(Unlink, pathname),
-            "unlinkat" => parse_syscall!(UnlinkAt, dirfd, pathname, flags),
-            "rename" => parse_syscall!(Rename, oldname, newname),
-            "renameat" => parse_syscall!(RenameAt, olddfd, oldname, newdfd, newname),
-            "mkdir" => parse_syscall!(Mkdir, pathname, mode),
-            "mkdirat" => parse_syscall!(MkdirAt, dirfd, pathname, mode),
-            "rmdir" => parse_syscall!(Rmdir, pathname),
+            "execve" => parse_syscall!(Execve, path),
             _ => None,
         }
     }
@@ -76,7 +103,7 @@ mod tests {
     #[test]
     fn test_parse_read_exit() {
         let parts = "read_exit;832";
-        let syscall = Syscall::from_parts(parts).unwrap();
-        assert_eq!(syscall, Syscall::ReadExit { read: 832 });
+        let syscall = RawSyscall::from_parts(parts).unwrap();
+        assert_eq!(syscall, RawSyscall::ReadExit { read: 832 });
     }
 }
