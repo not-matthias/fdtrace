@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Install bpftrace
+        run: sudo apt-get install -y bpftrace
+      
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
           cache-all-crates: "true"
-      - run: sudo cargo test --all-features --package fdtrace
+          
+      - run: sudo cargo test --package fdtrace
