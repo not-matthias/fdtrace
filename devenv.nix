@@ -21,7 +21,7 @@ in {
     enable = true;
     channel = "nightly";
     targets = ["x86_64-unknown-linux-gnu"];
-    components = ["rustc" "cargo" "rustfmt" "rust-analyzer" "rust-src"];
+    components = ["rustc" "cargo" "clippy" "rustfmt" "rust-analyzer" "rust-src"];
   };
 
   env.RUST_LOG = "info";

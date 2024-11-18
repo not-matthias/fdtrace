@@ -45,7 +45,7 @@ impl BpfTracer {
                 continue;
             }
 
-            let syscall = Syscall::from_parts(line).expect(&format!("Failed to parse: {line}"));
+            let syscall = Syscall::from_parts(line).unwrap_or_else(|| panic!("Failed to parse: {line}"));
 
             // The output contains many other processes logs as well, which is not what we
             // want. We need to find the 'execve' syscall to find the process id of our

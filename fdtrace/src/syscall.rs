@@ -11,7 +11,7 @@ pub struct Syscall {
 
 impl Syscall {
     pub fn from_parts(data: &str) -> Option<Self> {
-        let parts = data.split(";").into_iter();
+        let parts = data.split(";");
         Self::from_parts_iter(parts)
     }
 
@@ -64,7 +64,7 @@ pub enum RawSyscall {
 
 impl RawSyscall {
     pub fn from_parts(data: &str) -> Option<Self> {
-        let parts = data.split(";").into_iter();
+        let parts = data.split(";");
         Self::from_parts_iter(parts)
     }
 
