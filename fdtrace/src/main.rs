@@ -35,7 +35,10 @@ fn main() -> anyhow::Result<()> {
     // 2. Analyze the trace
     //
     let agg = analysis::agg::Agg::analyze(&tracer.syscalls());
-    println!("{}", agg);
+    // println!("{}", agg);
+
+    log::info!("{:#?}", agg);
+    agg.print_result();
 
     Ok(())
 }

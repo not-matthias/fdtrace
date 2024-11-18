@@ -2,6 +2,7 @@ use std::ops::{Deref, DerefMut};
 
 #[derive(Debug, PartialEq)]
 pub struct Syscall {
+    // TODO: Can this ever be negative?
     pub ts: i64,
     pub pid: i32,
     pub tid: i32,

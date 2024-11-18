@@ -30,9 +30,16 @@ impl BpfTracer {
     pub fn parse_trace(trace: &str) -> anyhow::Result<Self> {
         let mut target_pid = None;
 
+        let _ = std::fs::write("trace.txt", trace);
+
         let mut syscalls = Vec::new();
         for line in trace.lines().skip(1) {
-            let syscall = Syscall::from_parts(line).unwrap();
+            // TODO: How to fix this?
+            if line.starts_with("Lost ") {
+                continue;
+            }
+
+            let syscall = Syscall::from_parts(line).expect(&format!("Failed to parse: {line}"));
 
             // The output contains many other processes logs as well, which is not what we
             // want. We need to find the 'execve' syscall to find the process id of our
