@@ -15,6 +15,7 @@ pub struct Opt {
     pub input: PathBuf,
 }
 
+pub mod analysis;
 pub mod syscall;
 pub mod tracer;
 
@@ -28,10 +29,14 @@ fn main() -> anyhow::Result<()> {
     let tracer = BpfTracer::trace(&args.input).unwrap();
     if args.debug {
         tracer.debug_print();
+        tracer.print_to_file("debug.txt");
     }
 
     // 2. Analyze the trace
     //
+
+    let agg = analysis::agg::Agg::analyze(&tracer.syscalls());
+    println!("{}", agg);
 
     Ok(())
 }

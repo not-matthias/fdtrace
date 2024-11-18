@@ -70,6 +70,10 @@ impl BpfTracer {
         Ok(Self { syscalls })
     }
 
+    pub fn syscalls(&self) -> &[Syscall] {
+        &self.syscalls
+    }
+
     /// Prints the syscalls to a file
     pub fn print_to_file(&self, file: &str) {
         use std::io::Write;
