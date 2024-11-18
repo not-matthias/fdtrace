@@ -20,3 +20,9 @@ jobs:
           cache-all-crates: "true"
           
       - run: cargo test --package fdtrace
+
+      # Build and run the tracer
+      - run: cargo br --package example
+      - run: cargo br --package fdtrace
+
+      - run: sudo target/release/fdtrace --debug target/release/example
