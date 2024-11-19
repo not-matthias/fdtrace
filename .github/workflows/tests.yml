@@ -1,5 +1,5 @@
 name: tests
-on: 
+on:
   push:
   pull_request:
   workflow_dispatch:
@@ -10,19 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Install bpftrace
         run: sudo apt-get install -y bpftrace
-      
+
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
           cache-all-crates: "true"
-          
-      - run: cargo test --package fdtrace
+
+      # Run all tests
+      - run: cargo test
 
       # Build and run the tracer
-      - run: cargo br --package example
+      - run: cargo br --example threaded
+      - run: cargo br --example multisession
       - run: cargo br --package fdtrace
 
-      - run: sudo target/release/fdtrace --debug target/release/example
+      - run: sudo target/release/fdtrace --debug target/release/examples/threaded
+      - run: sudo target/release/fdtrace --debug target/release/examples/multisession

@@ -1,15 +1,10 @@
 # fdtrace
 
-# TODO
-
-sudo -E cargo rr '/nix/store/5jbs3aj3m3zsl6fc4w7sfsna57zjqf2y-user-environment/bin/rg needle /home/not-matthias/Documents/' --debug
-strace /nix/store/5jbs3aj3m3zsl6fc4w7sfsna57zjqf2y-user-environment/bin/rg needle /home/not-matthias/Documents 2> strace.txt
-
 ## Prerequisites
 
-- Linux Kernel > TODO
 - [Rust](https://www.rust-lang.org/tools/install)
-- [bpftrace](TODO): `sudo apt install -y bpftrace`
+- [bpftrace](https://bpftrace.org/): `sudo apt install -y bpftrace`
+- Linux Kernel > 4.7 (for `bpftrace` tracepoint support)
 
 ## Run
 
