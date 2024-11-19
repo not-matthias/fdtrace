@@ -1,86 +1,212 @@
-Syscall { ts: 25845009113177, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009122789, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009125332, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009126870, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009128194, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009129835, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009132864, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009134609, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009135789, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009136896, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009138034, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009139797, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009141414, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/0gfgn1gwg7ahpk9q0yb3p0kzp1psi5kq-rust-mixed/lib/rust..", flags: 524288 } }
-Syscall { ts: 25845009146102, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009147532, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/0gfgn1gwg7ahpk9q0yb3p0kzp1psi5kq-rust-mixed/lib/rust..", flags: 524288 } }
-Syscall { ts: 25845009148609, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009149643, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/0gfgn1gwg7ahpk9q0yb3p0kzp1psi5kq-rust-mixed/lib/rust..", flags: 524288 } }
-Syscall { ts: 25845009150959, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009152699, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..", flags: 524288 } }
-Syscall { ts: 25845009154251, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009155382, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..", flags: 524288 } }
-Syscall { ts: 25845009156419, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009157520, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..", flags: 524288 } }
-Syscall { ts: 25845009158645, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009160026, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/etc/ld..", flags: 524288 } }
-Syscall { ts: 25845009162779, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009163255, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/gl..", flags: 524288 } }
-Syscall { ts: 25845009165141, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009166152, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/gl..", flags: 524288 } }
-Syscall { ts: 25845009167134, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009168052, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..", flags: 524288 } }
-Syscall { ts: 25845009169218, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009170616, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..", flags: 524288 } }
-Syscall { ts: 25845009172500, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009173487, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..", flags: 524288 } }
-Syscall { ts: 25845009174440, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009175352, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..", flags: 524288 } }
-Syscall { ts: 25845009179548, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25845009180199, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 832 } }
-Syscall { ts: 25845009182447, pid: 183812, tid: 183812, raw: ReadExit { read: 832 } }
-Syscall { ts: 25845009213517, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25845009215656, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
-Syscall { ts: 25845009217274, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009219273, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009219751, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
-Syscall { ts: 25845009221590, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009221933, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/0gfgn1gwg7ahpk9q0yb3p0kzp1psi5kq-rust-mixed/lib/rust..", flags: 524288 } }
-Syscall { ts: 25845009223444, pid: 183812, tid: 183812, raw: OpenAtExit { fd: -2 } }
-Syscall { ts: 25845009223873, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..", flags: 524288 } }
-Syscall { ts: 25845009225889, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25845009226290, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 832 } }
-Syscall { ts: 25845009227419, pid: 183812, tid: 183812, raw: ReadExit { read: 832 } }
-Syscall { ts: 25845009262370, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25845009264194, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
-Syscall { ts: 25845009471644, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/proc/self/maps", flags: 524288 } }
-Syscall { ts: 25845009492693, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25845009500036, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 1024 } }
-Syscall { ts: 25845009512266, pid: 183812, tid: 183812, raw: ReadExit { read: 1024 } }
-Syscall { ts: 25845009530367, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 1024 } }
-Syscall { ts: 25845009536347, pid: 183812, tid: 183812, raw: ReadExit { read: 1024 } }
-Syscall { ts: 25845009539505, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 1024 } }
-Syscall { ts: 25845009544685, pid: 183812, tid: 183812, raw: ReadExit { read: 1024 } }
-Syscall { ts: 25845009549139, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 1024 } }
-Syscall { ts: 25845009551290, pid: 183812, tid: 183812, raw: ReadExit { read: 361 } }
-Syscall { ts: 25845009553731, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25845009557395, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
-Syscall { ts: 25845009571314, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/etc/passwd", flags: 524288 } }
-Syscall { ts: 25845009575673, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25847009651011, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25847009669494, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
-Syscall { ts: 25847009673808, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/etc/passwd", flags: 524288 } }
-Syscall { ts: 25847009701131, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25850010003811, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 4089 } }
-Syscall { ts: 25850010025318, pid: 183812, tid: 183812, raw: ReadExit { read: 4089 } }
-Syscall { ts: 25850010026776, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 32 } }
-Syscall { ts: 25850010027591, pid: 183812, tid: 183812, raw: ReadExit { read: 0 } }
-Syscall { ts: 25850010034201, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25850010042342, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
-Syscall { ts: 25850010045885, pid: 183812, tid: 183812, raw: OpenAt { dirfd: -100, filename: "/etc/passwd", flags: 524288 } }
-Syscall { ts: 25850010075442, pid: 183812, tid: 183812, raw: OpenAtExit { fd: 4 } }
-Syscall { ts: 25850010080243, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 4089 } }
-Syscall { ts: 25850010082002, pid: 183812, tid: 183812, raw: ReadExit { read: 4089 } }
-Syscall { ts: 25850010082790, pid: 183812, tid: 183812, raw: Read { fd: 4, count: 32 } }
-Syscall { ts: 25850010083433, pid: 183812, tid: 183812, raw: ReadExit { read: 0 } }
-Syscall { ts: 25850010085246, pid: 183812, tid: 183812, raw: Close { fd: 4 } }
-Syscall { ts: 25850010086514, pid: 183812, tid: 183812, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332480348690, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480357044, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480359208, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480360493, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480361792, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480363197, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480365629, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480366995, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480368169, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480369254, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480370336, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480371569, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480373022, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..", flags: 524288 } }
+Syscall { ts: 17332480376538, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480377710, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..", flags: 524288 } }
+Syscall { ts: 17332480378827, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480379906, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..", flags: 524288 } }
+Syscall { ts: 17332480381151, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480382605, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/xnn81lklmg1vrbz6271r1lav9qaljgia-pcre2-10.43/lib/gli..", flags: 524288 } }
+Syscall { ts: 17332480384598, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480385417, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/xnn81lklmg1vrbz6271r1lav9qaljgia-pcre2-10.43/lib/gli..", flags: 524288 } }
+Syscall { ts: 17332480386290, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480387143, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/xnn81lklmg1vrbz6271r1lav9qaljgia-pcre2-10.43/lib/lib..", flags: 524288 } }
+Syscall { ts: 17332480390840, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332480391310, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 832 } }
+Syscall { ts: 17332480393059, pid: 92062, tid: 92062, raw: ReadExit { read: 832 } }
+Syscall { ts: 17332480421926, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332480423546, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332480424796, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480427547, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480427992, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..", flags: 524288 } }
+Syscall { ts: 17332480429444, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480429783, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..", flags: 524288 } }
+Syscall { ts: 17332480431309, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480431740, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/xnn81lklmg1vrbz6271r1lav9qaljgia-pcre2-10.43/lib/lib..", flags: 524288 } }
+Syscall { ts: 17332480432924, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480433320, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 524288 } }
+Syscall { ts: 17332480434674, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480435907, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 524288 } }
+Syscall { ts: 17332480436850, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480437895, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/l..", flags: 524288 } }
+Syscall { ts: 17332480440065, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332480440450, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 832 } }
+Syscall { ts: 17332480441527, pid: 92062, tid: 92062, raw: ReadExit { read: 832 } }
+Syscall { ts: 17332480477722, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332480479579, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332480641966, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/mx2if4r09wl1gbccnw3aby1y4sb4dx54-glibc-locales-2.39-..", flags: 524288 } }
+Syscall { ts: 17332480648448, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332480656094, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332480657506, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332480690259, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 524288 } }
+Syscall { ts: 17332480694217, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332480702167, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 524288 } }
+Syscall { ts: 17332480704445, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332480708004, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 4096 } }
+Syscall { ts: 17332480709373, pid: 92062, tid: 92062, raw: ReadExit { read: 3916 } }
+Syscall { ts: 17332480732834, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 4096 } }
+Syscall { ts: 17332480733209, pid: 92062, tid: 92062, raw: ReadExit { read: 0 } }
+Syscall { ts: 17332480734117, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332480734928, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332480737182, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 591872 } }
+Syscall { ts: 17332480739910, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332480755020, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/lib/g..", flags: 524288 } }
+Syscall { ts: 17332480757501, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 5 } }
+Syscall { ts: 17332480760933, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480762233, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332480790890, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480792619, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332480837295, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480837992, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332480883226, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480884833, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332480934623, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480936998, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332480996875, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332480998550, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481068494, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481070087, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481157755, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481159510, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481247453, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481249312, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481346652, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481348679, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481476260, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481478529, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481480112, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481480279, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481557563, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481558659, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481559248, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481559342, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481638781, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481639705, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481640312, pid: 92062, tid: 92062, raw: ReadExit { read: 4096 } }
+Syscall { ts: 17332481640375, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481724105, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481725008, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481725502, pid: 92062, tid: 92062, raw: ReadExit { read: 726 } }
+Syscall { ts: 17332481725567, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481740621, pid: 92062, tid: 92062, raw: Read { fd: 5, count: 4096 } }
+Syscall { ts: 17332481741578, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481741767, pid: 92062, tid: 92062, raw: ReadExit { read: 0 } }
+Syscall { ts: 17332481741835, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481743981, pid: 92062, tid: 92062, raw: Close { fd: 5 } }
+Syscall { ts: 17332481744129, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332481746059, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332481746193, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332481751596, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332481751771, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332481753821, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332481754023, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332481972506, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/share..", flags: 524288 } }
+Syscall { ts: 17332481973731, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332481981740, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332481981983, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332481986775, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 4096 } }
+Syscall { ts: 17332481987543, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481988364, pid: 92062, tid: 92062, raw: ReadExit { read: 2998 } }
+Syscall { ts: 17332481988511, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481994625, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 4096 } }
+Syscall { ts: 17332481995756, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332481995947, pid: 92062, tid: 92062, raw: ReadExit { read: 0 } }
+Syscall { ts: 17332481996010, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332481996299, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332481996363, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332481996734, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332481996801, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332482001459, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/da0r6y8bzs9jn9d3p1mmv0vxmi1d80ab-gnugrep-3.11/share/..", flags: 0 } }
+Syscall { ts: 17332482001703, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482003848, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482003974, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482004224, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/da0r6y8bzs9jn9d3p1mmv0vxmi1d80ab-gnugrep-3.11/share/..", flags: 0 } }
+Syscall { ts: 17332482004328, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482005251, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482005343, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482005522, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/da0r6y8bzs9jn9d3p1mmv0vxmi1d80ab-gnugrep-3.11/share/..", flags: 0 } }
+Syscall { ts: 17332482005611, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482006387, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482006479, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482006655, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/da0r6y8bzs9jn9d3p1mmv0vxmi1d80ab-gnugrep-3.11/share/..", flags: 0 } }
+Syscall { ts: 17332482006744, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482007702, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482007792, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482010444, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/proc/self/maps", flags: 0 } }
+Syscall { ts: 17332482010663, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482022584, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332482022738, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482031705, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 8192 } }
+Syscall { ts: 17332482031823, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332482048056, pid: 92062, tid: 92062, raw: ReadExit { read: 3728 } }
+Syscall { ts: 17332482048991, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332482049221, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 4464 } }
+Syscall { ts: 17332482049285, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332482049506, pid: 92062, tid: 92062, raw: ReadExit { read: 0 } }
+Syscall { ts: 17332482049565, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332482049847, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332482049909, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332482051127, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332482051193, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332482100150, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/home/not-matthias/Documents", flags: 256 } }
+Syscall { ts: 17332482101138, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482104126, pid: 92062, tid: 92062, raw: OpenAtExit { fd: 4 } }
+Syscall { ts: 17332482104256, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482105701, pid: 92062, tid: 92062, raw: Read { fd: 4, count: 98304 } }
+Syscall { ts: 17332482105763, pid: 92062, tid: 92062, raw: Read { fd: -1050723616, count: 18446631905292925664 } }
+Syscall { ts: 17332482106066, pid: 92062, tid: 92062, raw: ReadExit { read: -21 } }
+Syscall { ts: 17332482106130, pid: 92062, tid: 92062, raw: ReadExit { read: -1050734920 } }
+Syscall { ts: 17332482110667, pid: 92062, tid: 92062, raw: Write { fd: 2, count: 33 } }
+Syscall { ts: 17332482110889, pid: 92062, tid: 92062, raw: Write { fd: -1050721104, count: 18446631905292928176 } }
+Syscall { ts: 17332482115253, pid: 92062, tid: 92062, raw: WriteExit { written: 33 } }
+Syscall { ts: 17332482115464, pid: 92062, tid: 92062, raw: WriteExit { written: -1050712312 } }
+Syscall { ts: 17332482116132, pid: 92062, tid: 92062, raw: Write { fd: 2, count: 28 } }
+Syscall { ts: 17332482116218, pid: 92062, tid: 92062, raw: Write { fd: -1050721104, count: 18446631905292928176 } }
+Syscall { ts: 17332482116732, pid: 92062, tid: 92062, raw: WriteExit { written: 28 } }
+Syscall { ts: 17332482116835, pid: 92062, tid: 92062, raw: WriteExit { written: -1050712312 } }
+Syscall { ts: 17332482119600, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/share..", flags: 0 } }
+Syscall { ts: 17332482119782, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482121016, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482121113, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482121288, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/share..", flags: 0 } }
+Syscall { ts: 17332482121378, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482122237, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482122330, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482122521, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/share..", flags: 0 } }
+Syscall { ts: 17332482122608, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482123462, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482123523, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482123796, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -100, path: "/nix/store/kpy2cyd05vdr6j1h200av81fnlxl1jw0-glibc-2.39-52/share..", flags: 0 } }
+Syscall { ts: 17332482123888, pid: 92062, tid: 92062, raw: OpenAt { dirfd: -1050716080, path: "", flags: -1050716080 } }
+Syscall { ts: 17332482124764, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -2 } }
+Syscall { ts: 17332482124824, pid: 92062, tid: 92062, raw: OpenAtExit { fd: -1050726128 } }
+Syscall { ts: 17332482125395, pid: 92062, tid: 92062, raw: Write { fd: 2, count: 16 } }
+Syscall { ts: 17332482125490, pid: 92062, tid: 92062, raw: Write { fd: -1050721104, count: 18446631905292928176 } }
+Syscall { ts: 17332482125976, pid: 92062, tid: 92062, raw: WriteExit { written: 16 } }
+Syscall { ts: 17332482126041, pid: 92062, tid: 92062, raw: WriteExit { written: -1050712312 } }
+Syscall { ts: 17332482126326, pid: 92062, tid: 92062, raw: Write { fd: 2, count: 1 } }
+Syscall { ts: 17332482126387, pid: 92062, tid: 92062, raw: Write { fd: -1050721104, count: 18446631905292928176 } }
+Syscall { ts: 17332482126600, pid: 92062, tid: 92062, raw: WriteExit { written: 1 } }
+Syscall { ts: 17332482126693, pid: 92062, tid: 92062, raw: WriteExit { written: -1050712312 } }
+Syscall { ts: 17332482127019, pid: 92062, tid: 92062, raw: Close { fd: 4 } }
+Syscall { ts: 17332482127079, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332482127409, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332482127507, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332482128790, pid: 92062, tid: 92062, raw: Close { fd: 1 } }
+Syscall { ts: 17332482128882, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332482129172, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332482129236, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }
+Syscall { ts: 17332482129621, pid: 92062, tid: 92062, raw: Close { fd: 2 } }
+Syscall { ts: 17332482129685, pid: 92062, tid: 92062, raw: Close { fd: -1050738688 } }
+Syscall { ts: 17332482129937, pid: 92062, tid: 92062, raw: CloseExit { ret: 0 } }
+Syscall { ts: 17332482130001, pid: 92062, tid: 92062, raw: CloseExit { ret: -1050719848 } }

@@ -1,4 +1,5 @@
 use crate::tracer::BpfTracer;
+use analysis::Analysis;
 use std::path::PathBuf;
 use structopt::StructOpt;
 
@@ -34,11 +35,8 @@ fn main() -> anyhow::Result<()> {
 
     // 2. Analyze the trace
     //
-    let agg = analysis::agg::Agg::analyze(tracer.syscalls());
-    // println!("{}", agg);
-
-    log::info!("{:#?}", agg);
-    agg.print_result();
+    let analysis = Analysis::new(tracer.take_syscalls());
+    analysis.print_result();
 
     Ok(())
 }

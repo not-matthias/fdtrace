@@ -1,7 +1,6 @@
 use crate::syscall::{RawSyscall, Syscall};
-use std::path::Path;
+use std::{io::Write, path::Path};
 use tempfile::NamedTempFile;
-use std::io::Write;
 
 pub struct BpfTracer {
     syscalls: Vec<Syscall>,
@@ -30,22 +29,25 @@ impl BpfTracer {
         }
 
         let output = std::fs::read_to_string(tmpfile)?;
-        Self::parse_trace(&output)
+        std::fs::write("raw_trace.txt", &output).unwrap();
+
+        Ok(Self {
+            syscalls: Self::parse_trace(&output)?,
+        })
     }
 
-    pub fn parse_trace(trace: &str) -> anyhow::Result<Self> {
+    pub fn parse_trace(trace: &str) -> anyhow::Result<Vec<Syscall>> {
         let mut target_pid = None;
-
-        let _ = std::fs::write("trace.txt", trace);
 
         let mut syscalls = Vec::new();
         for line in trace.lines().skip(1) {
-            // TODO: How to fix this?
             if line.starts_with("Lost ") {
+                log::warn!("Lost events: {line}");
                 continue;
             }
 
-            let syscall = Syscall::from_parts(line).unwrap_or_else(|| panic!("Failed to parse: {line}"));
+            let syscall =
+                Syscall::from_parts(line).unwrap_or_else(|| panic!("Failed to parse: {line}"));
 
             // The output contains many other processes logs as well, which is not what we
             // want. We need to find the 'execve' syscall to find the process id of our
@@ -69,11 +71,15 @@ impl BpfTracer {
             syscalls.push(syscall);
         }
 
-        Ok(Self { syscalls })
+        Ok(syscalls)
     }
 
     pub fn syscalls(&self) -> &[Syscall] {
         &self.syscalls
+    }
+
+    pub fn take_syscalls(self) -> Vec<Syscall> {
+        self.syscalls
     }
 
     /// Prints the syscalls to a file

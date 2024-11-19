@@ -1,0 +1,268 @@
+---
+source: fdtrace/src/analysis/mod.rs
+expression: analysis
+---
+{
+  "threads": {
+    "63427": {
+      "tid": 63427,
+      "files": {
+        "/etc/passwd": {
+          "sessions": [
+            {
+              "events": [],
+              "open_ts": 14353952213018,
+              "close_ts": 14355952292603
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 14358952516757,
+                    "end_ts": 14358952520657
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14358952520932,
+                    "end_ts": 14358952521084
+                  }
+                }
+              ],
+              "open_ts": 14355952325988,
+              "close_ts": 14358952523203
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 14358952535942,
+                    "end_ts": 14358952536241
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14358952536397,
+                    "end_ts": 14358952536525
+                  }
+                }
+              ],
+              "open_ts": 14358952526791,
+              "close_ts": 14358952536864
+            }
+          ]
+        },
+        "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 14353951943211,
+                    "end_ts": 14353951944232
+                  }
+                }
+              ],
+              "open_ts": 14353951941513,
+              "close_ts": 14353951970329
+            }
+          ]
+        },
+        "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 14353951910281,
+                    "end_ts": 14353951911905
+                  }
+                }
+              ],
+              "open_ts": 14353951907093,
+              "close_ts": 14353951933909
+            }
+          ]
+        },
+        "/proc/self/maps": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 14353952141421,
+                    "end_ts": 14353952149166
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 14353952157317,
+                    "end_ts": 14353952161024
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 14353952163668,
+                    "end_ts": 14353952166943
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 361,
+                    "start_ts": 14353952169539,
+                    "end_ts": 14353952171926
+                  }
+                }
+              ],
+              "open_ts": 14353952121740,
+              "close_ts": 14353952173290
+            }
+          ]
+        }
+      }
+    },
+    "63428": {
+      "tid": 63428,
+      "files": {
+        "/etc/hosts": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 14355452768811,
+                    "end_ts": 14355452776318
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14355452776816,
+                    "end_ts": 14355452777050
+                  }
+                }
+              ],
+              "open_ts": 14354952516435,
+              "close_ts": 14355452778656
+            },
+            {
+              "events": [],
+              "open_ts": 14355452781796,
+              "close_ts": 14355952911202
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 14356453135992,
+                    "end_ts": 14356453139656
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14356453139997,
+                    "end_ts": 14356453140238
+                  }
+                }
+              ],
+              "open_ts": 14355952919603,
+              "close_ts": 14356453141267
+            },
+            {
+              "events": [],
+              "open_ts": 14356453143797,
+              "close_ts": 14356953336427
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 14357453647999,
+                    "end_ts": 14357453654510
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14357453654911,
+                    "end_ts": 14357453655177
+                  }
+                }
+              ],
+              "open_ts": 14356953349382,
+              "close_ts": 14357453656666
+            },
+            {
+              "events": [],
+              "open_ts": 14357453660266,
+              "close_ts": 14357953772639
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 14358453931221,
+                    "end_ts": 14358453936045
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14358453936568,
+                    "end_ts": 14358453936819
+                  }
+                }
+              ],
+              "open_ts": 14357953782423,
+              "close_ts": 14358453937892
+            },
+            {
+              "events": [],
+              "open_ts": 14358453940537,
+              "close_ts": 14358954214918
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 14359454480014,
+                    "end_ts": 14359454485635
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 14359454486013,
+                    "end_ts": 14359454486263
+                  }
+                }
+              ],
+              "open_ts": 14358954221245,
+              "close_ts": 14359454487897
+            },
+            {
+              "events": [],
+              "open_ts": 14359454490781,
+              "close_ts": 14359954806383
+            }
+          ]
+        }
+      }
+    }
+  }
+}

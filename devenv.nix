@@ -9,11 +9,8 @@
 in {
   # https://devenv.sh/packages/
   packages = with pkgs; [
-    unstable.bpf-linker
-    unstable.llvm_19
-
-    bpftool
     bpftrace
+    cargo-insta
   ];
 
   # https://devenv.sh/languages/

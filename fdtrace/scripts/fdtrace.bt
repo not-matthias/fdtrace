@@ -1,50 +1,45 @@
 #!/usr/bin/bpftrace
 
-// TODO: Also verify the tid
-
-// tid
-// nsecs
-
 tracepoint:syscalls:sys_enter_execve {
-    printf("%lld;%d;%d;execve;%s\n", nsecs, tid, pid, str(args->filename));
+    printf("%lld;%d;%d;execve;%s\n", nsecs, pid, tid, str(args->filename));
 }
 
 tracepoint:syscalls:sys_enter_open {
-    printf("%lld;%d;%d;open;%s;%d\n", nsecs, tid, pid, str(args->filename), args->flags);
+    printf("%lld;%d;%d;open;%s;%d\n", nsecs, pid, tid, str(args->filename), args->flags);
 }
 
 tracepoint:syscalls:sys_exit_open {
-    printf("%lld;%d;%d;open_exit;%d\n", nsecs, tid, pid, args->ret);
+    printf("%lld;%d;%d;open_exit;%d\n", nsecs, pid, tid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_close {
-    printf("%lld;%d;%d;close;%d\n", nsecs, tid, pid, args->fd);
+    printf("%lld;%d;%d;close;%d\n", nsecs, pid, tid, args->fd);
 }
 
 tracepoint:syscalls:sys_exit_close {
-    printf("%lld;%d;%d;close_exit;%d\n", nsecs, tid, pid, args->ret);
+    printf("%lld;%d;%d;close_exit;%d\n", nsecs, pid, tid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_read {
-    printf("%lld;%d;%d;read;%d;%lu\n", nsecs, tid, pid, args->fd, args->count);
+    printf("%lld;%d;%d;read;%d;%lu\n", nsecs, pid, tid, args->fd, args->count);
 }
 
 tracepoint:syscalls:sys_exit_read {
-    printf("%lld;%d;%d;read_exit;%d\n", nsecs, tid, pid, args->ret);
+    printf("%lld;%d;%d;read_exit;%d\n", nsecs, pid, tid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_write {
-    printf("%lld;%d;%d;write;%d;%lu\n", nsecs, tid, pid, args->fd, args->count);
+    printf("%lld;%d;%d;write;%d;%lu\n", nsecs, pid, tid, args->fd, args->count);
 }
 
 tracepoint:syscalls:sys_exit_write {
-    printf("%lld;%d;%d;write_exit;%d\n", nsecs, tid, pid, args->ret);
+    printf("%lld;%d;%d;write_exit;%d\n", nsecs, pid, tid, args->ret);
 }
 
 tracepoint:syscalls:sys_enter_openat {
-    printf("%lld;%d;%d;openat;%d;%s;%d\n", nsecs, tid, pid, args->dfd, str(args->filename), args->flags);
+    printf("%lld;%d;%d;openat;%d;%s;%d\n", nsecs, pid, tid, args->dfd, str(args->filename), args->flags);
 }
 
 tracepoint:syscalls:sys_exit_openat {
-    printf("%lld;%d;%d;openat_exit;%d\n", nsecs, tid, pid, args->ret);
+    printf("%lld;%d;%d;openat_exit;%d\n", nsecs, pid, tid, args->ret);
 }

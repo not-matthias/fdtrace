@@ -1,0 +1,193 @@
+---
+source: fdtrace/src/analysis/mod.rs
+expression: analysis
+---
+{
+  "threads": {
+    "58965": {
+      "tid": 58965,
+      "files": {
+        "/etc/passwd": {
+          "sessions": [
+            {
+              "events": [],
+              "open_ts": 13677873333711,
+              "close_ts": 13679873410368
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 13682873705412,
+                    "end_ts": 13682873709276
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 13682873709543,
+                    "end_ts": 13682873709693
+                  }
+                }
+              ],
+              "open_ts": 13679873417389,
+              "close_ts": 13682873711212
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 13682873721187,
+                    "end_ts": 13682873721482
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 0,
+                    "start_ts": 13682873721634,
+                    "end_ts": 13682873721765
+                  }
+                }
+              ],
+              "open_ts": 13682873713231,
+              "close_ts": 13682873722086
+            }
+          ]
+        },
+        "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 13677873092352,
+                    "end_ts": 13677873093030
+                  }
+                }
+              ],
+              "open_ts": 13677873090985,
+              "close_ts": 13677873113268
+            }
+          ]
+        },
+        "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 13677873064327,
+                    "end_ts": 13677873065747
+                  }
+                }
+              ],
+              "open_ts": 13677873061370,
+              "close_ts": 13677873084984
+            }
+          ]
+        },
+        "/proc/self/maps": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 13677873263498,
+                    "end_ts": 13677873270157
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 13677873279516,
+                    "end_ts": 13677873282929
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 13677873285444,
+                    "end_ts": 13677873288651
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 361,
+                    "start_ts": 13677873291170,
+                    "end_ts": 13677873293333
+                  }
+                }
+              ],
+              "open_ts": 13677873243763,
+              "close_ts": 13677873294661
+            }
+          ]
+        }
+      }
+    },
+    "58966": {
+      "tid": 58966,
+      "files": {
+        "/etc/hosts": {
+          "sessions": [
+            {
+              "events": [],
+              "open_ts": 13678873675000,
+              "close_ts": 13679373799415
+            },
+            {
+              "events": [],
+              "open_ts": 13679373825873,
+              "close_ts": 13679874067768
+            },
+            {
+              "events": [],
+              "open_ts": 13679874076012,
+              "close_ts": 13680374212268
+            },
+            {
+              "events": [],
+              "open_ts": 13680374220569,
+              "close_ts": 13680874461520
+            },
+            {
+              "events": [],
+              "open_ts": 13680874467366,
+              "close_ts": 13681374600385
+            },
+            {
+              "events": [],
+              "open_ts": 13681374609441,
+              "close_ts": 13681874689289
+            },
+            {
+              "events": [],
+              "open_ts": 13681874697012,
+              "close_ts": 13682374774047
+            },
+            {
+              "events": [],
+              "open_ts": 13682374783706,
+              "close_ts": 13682874920937
+            },
+            {
+              "events": [],
+              "open_ts": 13682874927093,
+              "close_ts": 13683375073261
+            },
+            {
+              "events": [],
+              "open_ts": 13683375079665,
+              "close_ts": 13683875291590
+            }
+          ]
+        }
+      }
+    }
+  }
+}
