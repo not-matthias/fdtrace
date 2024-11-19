@@ -42,12 +42,6 @@ impl ThreadAnalysis {
                     let Some(RawSyscall::OpenExit { ret } | RawSyscall::OpenAtExit { ret }) =
                         iter.peek().map(|s| &s.raw)
                     else {
-                        // Sometimes we don't directly get a exit
-                        //
-                        // Example:
-                        // openat;-100;/target/...;524288
-                        // openat;-1059213040;;-1059213040
-                        //
                         log::warn!("Syscall not followed by exit: {call:?}");
                         continue;
                     };
@@ -123,12 +117,12 @@ impl ThreadAnalysis {
                         log::warn!("Close without open: {call:?}");
                         continue;
                     };
-                    log::debug!("Closed {{cur_session.path}}");
+                    cur_session.close_ts = call.ts;
+                    log::debug!("Closed {}", cur_session.path);
 
                     let file_info = files
                         .entry(cur_session.path.clone())
                         .or_insert(FileInfo::default());
-                    cur_session.close_ts = call.ts;
                     file_info.sessions.push(cur_session);
                 }
 

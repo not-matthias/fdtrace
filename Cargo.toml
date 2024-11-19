@@ -8,13 +8,14 @@ default = []
 trace-stdfd = []
 
 [dependencies]
-structopt = "0.3.26"
-json = "0.12.4"
-tempfile = "3.14.0"
-anyhow = "1.0.93"
 log = "0.4.22"
 env_logger = "0.11.5"
+
+structopt = "0.3.26"
+tempfile = "3.14.0"
 itertools = "0.13.0"
+anyhow = "1.0.93"
+
 comfy-table = "7.1.3"
 termimad = "0.31.1"
 

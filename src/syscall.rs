@@ -51,9 +51,6 @@ impl DerefMut for Syscall {
 ///
 /// - File creation and opening: open, openat.
 /// - File descriptor operations: close, read, write.
-/// - File removal: unlink, unlinkat, rmdir.
-/// - File renaming: rename, renameat.
-/// - Directory creation: mkdir, mkdirat.
 #[derive(Debug, PartialEq)]
 #[cfg_attr(test, derive(serde::Serialize))]
 #[rustfmt::skip]
