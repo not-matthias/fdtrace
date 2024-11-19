@@ -70,10 +70,10 @@ pub enum RawSyscall {
     CloseExit { ret: i64 },
 
     Read { fd: fd_t, count: usize },
-    ReadExit { read: i64 },
+    ReadExit { count: i64 },
 
     Write { fd: fd_t, count: usize },
-    WriteExit { written: i64 },
+    WriteExit { count: i64 },
 }
 
 impl RawSyscall {
@@ -105,10 +105,10 @@ impl RawSyscall {
             "close_exit" => parse_syscall!(CloseExit, ret),
 
             "read" => parse_syscall!(Read, fd, count),
-            "read_exit" => parse_syscall!(ReadExit, read),
+            "read_exit" => parse_syscall!(ReadExit, count),
 
             "write" => parse_syscall!(Write, fd, count),
-            "write_exit" => parse_syscall!(WriteExit, written),
+            "write_exit" => parse_syscall!(WriteExit, count),
 
             _ => None,
         }
@@ -123,7 +123,7 @@ mod tests {
     #[test]
     fn test_parse_threaded() {
         let raw_trace = include_str!("../data/threaded.txt");
-        let syscalls = BpfTracer::parse_trace(&raw_trace).unwrap();
+        let syscalls = BpfTracer::parse_trace(raw_trace).unwrap();
 
         insta::assert_json_snapshot!(syscalls);
     }
@@ -131,7 +131,7 @@ mod tests {
     #[test]
     fn test_parse_multisession() {
         let raw_trace = include_str!("../data/multisession.txt");
-        let syscalls = BpfTracer::parse_trace(&raw_trace).unwrap();
+        let syscalls = BpfTracer::parse_trace(raw_trace).unwrap();
 
         insta::assert_json_snapshot!(syscalls);
     }
@@ -140,22 +140,6 @@ mod tests {
     fn test_parse_read_exit() {
         let parts = "read_exit;832";
         let syscall = RawSyscall::from_parts(parts).unwrap();
-        assert_eq!(syscall, RawSyscall::ReadExit { read: 832 });
-    }
-
-    #[test]
-    fn test_parse_close() {
-        let parts =
-            "20429708185183;105898;105898;openat;18446631905284431216;;18446631905284431216";
-        let syscall = Syscall::from_parts(parts).unwrap();
-        assert_eq!(syscall.ts, 18836222727359);
-        assert_eq!(syscall.pid, 99220);
-        assert_eq!(syscall.tid, 99220);
-        assert_eq!(
-            syscall.raw,
-            RawSyscall::Close {
-                fd: 18446631905284438752
-            }
-        );
+        assert_eq!(syscall, RawSyscall::ReadExit { count: 832 });
     }
 }

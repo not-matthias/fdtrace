@@ -2,7 +2,8 @@
 
 # TODO
 
-sudo -E cargo rr '/run/current-system/sw/bin/grep needle /home/not-matthias/Documents' --debug
+sudo -E cargo rr '/nix/store/5jbs3aj3m3zsl6fc4w7sfsna57zjqf2y-user-environment/bin/rg needle /home/not-matthias/Documents/' --debug
+strace /nix/store/5jbs3aj3m3zsl6fc4w7sfsna57zjqf2y-user-environment/bin/rg needle /home/not-matthias/Documents 2> strace.txt
 
 ## Prerequisites
 

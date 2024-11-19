@@ -1,5 +1,5 @@
 ---
-source: fdtrace/src/syscall.rs
+source: src/syscall.rs
 expression: syscalls
 ---
 [
@@ -438,7 +438,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 832
+        "count": 832
       }
     }
   },
@@ -567,7 +567,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 832
+        "count": 832
       }
     }
   },
@@ -630,7 +630,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 1024
+        "count": 1024
       }
     }
   },
@@ -651,7 +651,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 1024
+        "count": 1024
       }
     }
   },
@@ -672,7 +672,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 1024
+        "count": 1024
       }
     }
   },
@@ -693,7 +693,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 417
+        "count": 417
       }
     }
   },
@@ -800,7 +800,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 62
+        "count": 62
       }
     }
   },
@@ -821,7 +821,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 0
+        "count": 0
       }
     }
   },
@@ -842,7 +842,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 62
+        "count": 62
       }
     }
   },
@@ -863,7 +863,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 1
+        "count": 1
       }
     }
   },
@@ -884,7 +884,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 4089
+        "count": 4089
       }
     }
   },
@@ -905,7 +905,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 0
+        "count": 0
       }
     }
   },
@@ -926,7 +926,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 4151
+        "count": 4151
       }
     }
   },
@@ -947,7 +947,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 1
+        "count": 1
       }
     }
   },
@@ -968,7 +968,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 7
+        "count": 7
       }
     }
   },
@@ -989,7 +989,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "ReadExit": {
-        "read": 0
+        "count": 0
       }
     }
   },
@@ -1010,7 +1010,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 4158
+        "count": 4158
       }
     }
   },
@@ -1031,7 +1031,7 @@ expression: syscalls
     "tid": 110089,
     "raw": {
       "WriteExit": {
-        "written": 1
+        "count": 1
       }
     }
   },

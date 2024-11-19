@@ -26,7 +26,7 @@ impl Analysis {
     }
 
     pub fn print_result(&self) {
-        for (_, thread) in &self.threads {
+        for thread in self.threads.values() {
             thread.print_result();
         }
     }

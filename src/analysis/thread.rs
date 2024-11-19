@@ -64,75 +64,65 @@ impl ThreadAnalysis {
                         log::debug!("Created a new session for {path}");
                     }
                 }
-                RawSyscall::Read { fd: read_fd, .. } => {
-                    let Some(cur_session) = cur_sessions.get_mut(read_fd) else {
-                        log::warn!("Read without open: {call:?}");
+
+                RawSyscall::Read { fd, .. } | RawSyscall::Write { fd, .. } => {
+                    let is_read = matches!(call.raw, RawSyscall::Read { .. });
+
+                    let Some(cur_session) = cur_sessions.get_mut(fd) else {
+                        log::warn!("RW without open: {call:?}");
                         continue;
                     };
 
-                    let (end_ts, read) = match iter.peek().map(|s| (s.ts, &s.raw)) {
-                        Some((end_ts, RawSyscall::ReadExit { read })) => (end_ts, read),
-                        _ => {
-                            // In some cases, the exit syscall is delayed by one
-                            // syscall. We can check the next syscall to see if it's
-                            // the exit syscall.
-                            //
-                            // 0;92062;92062;read;5;4096
-                            // 1;92062;92062;read;-1050723616;18446631905292925664
-                            // 3;92062;92062;read_exit;4096
-                            // 4;92062;92062;read_exit;-1050734920
-                            //
-                            let Some((end_ts, RawSyscall::ReadExit { read })) =
-                                iter.peek().map(|s| (s.ts, &s.raw))
+                    macro_rules! peek_peek_exit {
+                        ($name:path) => {{
+                            let Some((end_ts, $name { count })) = iter
+                                .peek()
+                                .map(|s| (s.ts, &s.raw))
+                                .or_else(|| iter.peek().map(|s| (s.ts, &s.raw)))
                             else {
-                                panic!("Read syscall not followed by read exit: {call:?}")
+                                // FIXME: We potentially lost a read event here. But it's still
+                                // better to continue instead of panicking.
+                                log::warn!("Read syscall not followed by read exit: {call:?}");
+                                continue;
                             };
 
-                            (end_ts, read)
-                        }
+                            (end_ts, count)
+                        }};
+                    }
+
+                    let (end_ts, count) = if is_read {
+                        peek_peek_exit!(RawSyscall::ReadExit)
+                    } else {
+                        peek_peek_exit!(RawSyscall::WriteExit)
                     };
 
                     // Only record if read was successful
                     // - 0 = EOF
                     // - -1 = error
                     //
-                    if read > &0 {
-                        cur_session.events.push(FileEvent::Read {
-                            bytes: *read as usize,
-                            start_ts: call.ts,
-                            end_ts,
-                        });
-                        log::debug!("Read {read} bytes from {}", cur_session.path);
+                    if count > &0 {
+                        if is_read {
+                            cur_session.events.push(FileEvent::Read {
+                                bytes: *count as usize,
+                                start_ts: call.ts,
+                                end_ts,
+                            });
+                        } else {
+                            cur_session.events.push(FileEvent::Write {
+                                bytes: *count as usize,
+                                start_ts: call.ts,
+                                end_ts,
+                            });
+                        }
                     }
                 }
-                RawSyscall::Write { fd, .. } => {
-                    let cur_session = cur_sessions
-                        .get_mut(fd)
-                        .unwrap_or_else(|| panic!("Can't write without open: {call:?}"));
 
-                    let Some((end_ts, RawSyscall::WriteExit { written })) =
-                        iter.peek().map(|s| (s.ts, &s.raw))
-                    else {
-                        panic!("Write syscall not followed by write exit")
-                    };
-
-                    // Only record if write was successful.
-                    // - 0 = nothing was written
-                    // - -1 = error
-                    //
-                    if written > &-0 {
-                        cur_session.events.push(FileEvent::Write {
-                            bytes: *written as usize,
-                            start_ts: call.ts,
-                            end_ts,
-                        });
-                        log::debug!("Wrote {written} bytes to {{session.path}}");
-                    }
-                }
                 RawSyscall::Close { fd: close_fd } => {
-                    let mut cur_session = cur_sessions
-                        .remove(close_fd)
-                        .unwrap_or_else(|| panic!("Close without open: {call:?}"));
+                    let Some(mut cur_session) = cur_sessions.remove(close_fd) else {
+                        // FIXME: More syscalls need to be traced to also catch this.
+                        log::warn!("Close without open: {call:?}");
+                        continue;
+                    };
                     log::debug!("Closed {{cur_session.path}}");
 
                     let file_info = files
