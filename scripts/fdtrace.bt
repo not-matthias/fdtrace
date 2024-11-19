@@ -23,7 +23,6 @@ tracepoint:syscalls:sys_enter_open {
 // field:int __syscall_nr;	offset:8;	size:4;	signed:1;
 // field:int error_code;	offset:16;	size:8;	signed:0;
 tracepoint:syscalls:sys_exit_open {
-    // TODO: error_code is not signed?
     printf("%lld;%d;%d;open_exit;%lld\n", nsecs, pid, tid, args->ret);
 }
 
