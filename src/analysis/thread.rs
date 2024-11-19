@@ -65,9 +65,10 @@ impl ThreadAnalysis {
                     }
                 }
                 RawSyscall::Read { fd: read_fd, .. } => {
-                    let cur_session = cur_sessions
-                        .get_mut(read_fd)
-                        .unwrap_or_else(|| panic!("Can't read without open: {call:?}"));
+                    let Some(cur_session) = cur_sessions.get_mut(read_fd) else {
+                        log::warn!("Read without open: {call:?}");
+                        continue;
+                    };
 
                     let (end_ts, read) = match iter.peek().map(|s| (s.ts, &s.raw)) {
                         Some((end_ts, RawSyscall::ReadExit { read })) => (end_ts, read),
