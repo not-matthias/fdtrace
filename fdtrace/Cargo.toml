@@ -3,6 +3,10 @@ name = "fdtrace"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = []
+trace-stdfd = []
+
 [dependencies]
 structopt = "0.3.26"
 json = "0.12.4"

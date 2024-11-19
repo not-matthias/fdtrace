@@ -1,0 +1,142 @@
+---
+source: fdtrace/src/analysis/mod.rs
+expression: analysis
+---
+{
+  "threads": {
+    "110089": {
+      "tid": 110089,
+      "files": {
+        "/etc/hostname": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 7,
+                    "start_ts": 21197750336537,
+                    "end_ts": 21197750337055
+                  }
+                }
+              ],
+              "path": "/etc/hostname",
+              "open_ts": 21197750315606,
+              "close_ts": 21198750532596
+            }
+          ]
+        },
+        "/etc/hosts": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21197750321291,
+                    "end_ts": 21197750322687
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21197750307894,
+              "close_ts": 21198750537823
+            }
+          ]
+        },
+        "/etc/passwd": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 21197750331770,
+                    "end_ts": 21197750332500
+                  }
+                }
+              ],
+              "path": "/etc/passwd",
+              "open_ts": 21197750314022,
+              "close_ts": 21198750537187
+            }
+          ]
+        },
+        "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 21197750081926,
+                    "end_ts": 21197750082594
+                  }
+                }
+              ],
+              "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..",
+              "open_ts": 21197750080494,
+              "close_ts": 21197750106083
+            }
+          ]
+        },
+        "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 21197750052776,
+                    "end_ts": 21197750054156
+                  }
+                }
+              ],
+              "path": "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..",
+              "open_ts": 21197750049773,
+              "close_ts": 21197750073346
+            }
+          ]
+        },
+        "/proc/self/maps": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21197750267478,
+                    "end_ts": 21197750274761
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21197750282905,
+                    "end_ts": 21197750286355
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21197750288772,
+                    "end_ts": 21197750291308
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 417,
+                    "start_ts": 21197750293104,
+                    "end_ts": 21197750294269
+                  }
+                }
+              ],
+              "path": "/proc/self/maps",
+              "open_ts": 21197750247373,
+              "close_ts": 21197750295559
+            }
+          ]
+        }
+      }
+    }
+  }
+}

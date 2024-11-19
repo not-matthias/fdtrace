@@ -88,8 +88,18 @@ impl FileInfo {
 #[cfg_attr(test, derive(serde::Serialize))]
 pub struct FileSession {
     pub events: Vec<FileEvent>,
+    pub path: String,
     pub open_ts: u64,
     pub close_ts: u64,
+}
+
+impl FileSession {
+    pub fn new(path: impl ToString) -> Self {
+        Self {
+            path: path.to_string(),
+            ..Default::default()
+        }
+    }
 }
 
 // Temporal

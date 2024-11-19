@@ -1,14 +1,10 @@
 use super::file::{FileInfo, FileSession};
 use crate::{
     analysis::{file::FileEvent, utils},
-    syscall::{tid_t, RawSyscall, Syscall},
+    syscall::{fd_t, tid_t, RawSyscall, Syscall},
 };
 use itertools::Itertools;
 use std::collections::HashMap;
-
-const FD_STDIN: i32 = 0;
-const FD_STDOUT: i32 = 1;
-const FD_STDERR: i32 = 2;
 
 #[derive(Debug)]
 #[cfg_attr(test, derive(serde::Serialize))]
@@ -19,13 +15,23 @@ pub struct ThreadAnalysis {
 
 impl ThreadAnalysis {
     pub fn new(tid: tid_t, syscalls: &[Syscall]) -> Self {
-        log::info!("Thread {tid} got {{syscalls.len()}} syscalls");
+        log::info!("Thread {tid} got {} syscalls", syscalls.len());
 
         let mut files = HashMap::new();
 
-        // Session is open until we get a `Close` syscall
-        // TODO: Allow multiple sessions at the same time
-        let mut cur_session = None;
+        // All the current sessions. A new session is created when the file is opened,
+        // and is removed from this list and added to `files` when the file is closed.
+        //
+        let mut cur_sessions = {
+            let mut map = HashMap::new();
+
+            // Add the default sessions for stdin, stdout, and stderr
+            map.insert(0, FileSession::new("/dev/stdin"));
+            map.insert(1, FileSession::new("/dev/stdout"));
+            map.insert(2, FileSession::new("/dev/stderr"));
+
+            map
+        };
 
         let mut iter = syscalls.iter().multipeek();
         while let Some(call) = iter.next() {
@@ -33,7 +39,7 @@ impl ThreadAnalysis {
 
             match &call.raw {
                 RawSyscall::OpenAt { path, .. } | RawSyscall::Open { path, .. } => {
-                    let Some(RawSyscall::OpenExit { fd } | RawSyscall::OpenAtExit { fd }) =
+                    let Some(RawSyscall::OpenExit { ret } | RawSyscall::OpenAtExit { ret }) =
                         iter.peek().map(|s| &s.raw)
                     else {
                         // Sometimes we don't directly get a exit
@@ -46,25 +52,22 @@ impl ThreadAnalysis {
                         continue;
                     };
 
-                    cur_session = Some((
-                        fd,
-                        path.clone(),
-                        FileSession {
-                            open_ts: call.ts,
-                            ..Default::default()
-                        },
-                    ));
-                    log::debug!("Created a new session for {path}");
+                    if *ret != -1 {
+                        cur_sessions.insert(
+                            *ret as fd_t,
+                            FileSession {
+                                path: path.clone(),
+                                open_ts: call.ts,
+                                ..Default::default()
+                            },
+                        );
+                        log::debug!("Created a new session for {path}");
+                    }
                 }
                 RawSyscall::Read { fd: read_fd, .. } => {
-                    if *read_fd == FD_STDIN {
-                        continue;
-                    }
-
-                    let (open_fd, _, session) = cur_session
-                        .as_mut()
+                    let cur_session = cur_sessions
+                        .get_mut(read_fd)
                         .unwrap_or_else(|| panic!("Can't read without open: {call:?}"));
-                    assert_eq!(*open_fd, read_fd, "Fd doesn't match: {call:?}");
 
                     let (end_ts, read) = match iter.peek().map(|s| (s.ts, &s.raw)) {
                         Some((end_ts, RawSyscall::ReadExit { read })) => (end_ts, read),
@@ -88,26 +91,23 @@ impl ThreadAnalysis {
                         }
                     };
 
-                    // Only record if read was successful.
-                    // See: https://man7.org/linux/man-pages/man2/read.2.html
+                    // Only record if read was successful
+                    // - 0 = EOF
+                    // - -1 = error
                     //
-                    if read != &-1 {
-                        session.events.push(FileEvent::Read {
+                    if read > &0 {
+                        cur_session.events.push(FileEvent::Read {
                             bytes: *read as usize,
                             start_ts: call.ts,
                             end_ts,
                         });
-                        log::debug!("Read {read} bytes from {{session.path}}");
+                        log::debug!("Read {read} bytes from {}", cur_session.path);
                     }
                 }
-                RawSyscall::Write { fd: write_fd, .. } => {
-                    if *write_fd == FD_STDOUT || *write_fd == FD_STDERR {
-                        continue;
-                    }
-
-                    let (open_fd, _, session) =
-                        cur_session.as_mut().expect("Can't write without open");
-                    assert_eq!(*open_fd, write_fd);
+                RawSyscall::Write { fd, .. } => {
+                    let cur_session = cur_sessions
+                        .get_mut(fd)
+                        .unwrap_or_else(|| panic!("Can't write without open: {call:?}"));
 
                     let Some((end_ts, RawSyscall::WriteExit { written })) =
                         iter.peek().map(|s| (s.ts, &s.raw))
@@ -115,8 +115,12 @@ impl ThreadAnalysis {
                         panic!("Write syscall not followed by write exit")
                     };
 
-                    if written != &-1 {
-                        session.events.push(FileEvent::Write {
+                    // Only record if write was successful.
+                    // - 0 = nothing was written
+                    // - -1 = error
+                    //
+                    if written > &-0 {
+                        cur_session.events.push(FileEvent::Write {
                             bytes: *written as usize,
                             start_ts: call.ts,
                             end_ts,
@@ -125,24 +129,34 @@ impl ThreadAnalysis {
                     }
                 }
                 RawSyscall::Close { fd: close_fd } => {
-                    if *close_fd == FD_STDIN || *close_fd == FD_STDOUT || *close_fd == FD_STDERR {
-                        continue;
-                    }
+                    let mut cur_session = cur_sessions
+                        .remove(close_fd)
+                        .unwrap_or_else(|| panic!("Close without open: {call:?}"));
+                    log::debug!("Closed {{cur_session.path}}");
 
-                    let Some((open_fd, path, mut session)) = cur_session.take() else {
-                        log::warn!("Close without open: {call:?}");
-                        continue;
-                    };
-                    assert_eq!(open_fd, close_fd, "{call:?}");
-                    log::debug!("Closed {path}");
-
-                    let file_info = files.entry(path).or_insert(FileInfo::default());
-                    session.close_ts = call.ts;
-                    file_info.sessions.push(session);
+                    let file_info = files
+                        .entry(cur_session.path.clone())
+                        .or_insert(FileInfo::default());
+                    cur_session.close_ts = call.ts;
+                    file_info.sessions.push(cur_session);
                 }
 
                 _ => {}
             }
+        }
+
+        // Close the stdin, stdout, and stderr sessions
+        //
+        #[cfg(feature = "trace-stdfd")]
+        for fd in 0..3 {
+            let mut cur_session = cur_sessions.remove(&fd).unwrap();
+            cur_session.open_ts = syscalls.first().unwrap().ts;
+            cur_session.close_ts = syscalls.last().unwrap().ts;
+
+            let file_info = files
+                .entry(cur_session.path.clone())
+                .or_insert(Default::default());
+            file_info.sessions.push(cur_session);
         }
 
         Self { tid, files }
@@ -168,7 +182,7 @@ impl ThreadAnalysis {
             println!();
             for (i, session) in file_info.sessions.iter().enumerate() {
                 mdprintln(&format!(
-                    "**Session {}** took {:.2}ms (idle for {:.2}ms)\n",
+                    "**Session {}** was open for {:.2}ms (idle for {:.2}ms)\n",
                     i + 1,
                     session.duration_ms(),
                     session.idle_time_ms()

@@ -1,9 +1,12 @@
 use std::ops::{Deref, DerefMut};
 
 #[allow(non_camel_case_types)]
-pub type pid_t = usize;
+pub type pid_t = i32;
 #[allow(non_camel_case_types)]
 pub type tid_t = i32;
+
+#[allow(non_camel_case_types)]
+pub type fd_t = u64;
 
 #[derive(Debug, PartialEq)]
 #[cfg_attr(test, derive(serde::Serialize))]
@@ -55,17 +58,22 @@ impl DerefMut for Syscall {
 #[cfg_attr(test, derive(serde::Serialize))]
 #[rustfmt::skip]
 pub enum RawSyscall {
-    Open { path: String, flags: i32 },
-    OpenExit { fd: i32 },
-    OpenAt { dirfd: i32, path: String, flags: i32 },
-    OpenAtExit { fd: i32 },
-    Close { fd: i32 },
-    CloseExit { ret: i32 },
-    Read { fd: i32, count: usize },
-    ReadExit { read: i32 },
-    Write { fd: i32, count: usize },
-    WriteExit { written: i32 },
     Execve { path: String },
+
+    Open { path: String, flags: u64, mode: u64 },
+    OpenExit { ret: i64 },
+
+    OpenAt { dirfd: fd_t, path: String, flags: u64 },
+    OpenAtExit { ret: i64 },
+
+    Close { fd: fd_t },
+    CloseExit { ret: i64 },
+
+    Read { fd: fd_t, count: usize },
+    ReadExit { read: i64 },
+
+    Write { fd: fd_t, count: usize },
+    WriteExit { written: i64 },
 }
 
 impl RawSyscall {
@@ -85,17 +93,23 @@ impl RawSyscall {
         }
 
         match parts.next()? {
-            "open" => parse_syscall!(Open, path, flags),
-            "open_exit" => parse_syscall!(OpenExit, fd),
+            "execve" => parse_syscall!(Execve, path),
+
+            "open" => parse_syscall!(Open, path, flags, mode),
+            "open_exit" => parse_syscall!(OpenExit, ret),
+
             "openat" => parse_syscall!(OpenAt, dirfd, path, flags),
-            "openat_exit" => parse_syscall!(OpenAtExit, fd),
+            "openat_exit" => parse_syscall!(OpenAtExit, ret),
+
             "close" => parse_syscall!(Close, fd),
             "close_exit" => parse_syscall!(CloseExit, ret),
+
             "read" => parse_syscall!(Read, fd, count),
             "read_exit" => parse_syscall!(ReadExit, read),
+
             "write" => parse_syscall!(Write, fd, count),
             "write_exit" => parse_syscall!(WriteExit, written),
-            "execve" => parse_syscall!(Execve, path),
+
             _ => None,
         }
     }
@@ -107,36 +121,19 @@ mod tests {
     use crate::tracer::BpfTracer;
 
     #[test]
-    fn test_parse_trace_0() {
-        let raw_trace = include_str!("../data/raw_trace_0.txt");
+    fn test_parse_threaded() {
+        let raw_trace = include_str!("../data/threaded.txt");
         let syscalls = BpfTracer::parse_trace(&raw_trace).unwrap();
 
         insta::assert_json_snapshot!(syscalls);
     }
 
     #[test]
-    fn test_parse_trace_1() {
-        let raw_trace = include_str!("../data/raw_trace_1.txt");
+    fn test_parse_multisession() {
+        let raw_trace = include_str!("../data/multisession.txt");
         let syscalls = BpfTracer::parse_trace(&raw_trace).unwrap();
 
         insta::assert_json_snapshot!(syscalls);
-    }
-
-    #[test]
-    fn test_parse_openat_with_syscall() {
-        let parts = "12207973532783;50980;50981;openat;-100;/etc/hosts;524288";
-        let syscall = Syscall::from_parts(parts).unwrap();
-        assert_eq!(syscall.ts, 12207973532783);
-        assert_eq!(syscall.pid, 50980);
-        assert_eq!(syscall.tid, 50981);
-        assert_eq!(
-            syscall.raw,
-            RawSyscall::OpenAt {
-                dirfd: -100,
-                path: "/etc/hosts".to_string(),
-                flags: 524288
-            }
-        );
     }
 
     #[test]
@@ -144,5 +141,21 @@ mod tests {
         let parts = "read_exit;832";
         let syscall = RawSyscall::from_parts(parts).unwrap();
         assert_eq!(syscall, RawSyscall::ReadExit { read: 832 });
+    }
+
+    #[test]
+    fn test_parse_close() {
+        let parts =
+            "20429708185183;105898;105898;openat;18446631905284431216;;18446631905284431216";
+        let syscall = Syscall::from_parts(parts).unwrap();
+        assert_eq!(syscall.ts, 18836222727359);
+        assert_eq!(syscall.pid, 99220);
+        assert_eq!(syscall.tid, 99220);
+        assert_eq!(
+            syscall.raw,
+            RawSyscall::Close {
+                fd: 18446631905284438752
+            }
+        );
     }
 }

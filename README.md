@@ -20,6 +20,11 @@ To run the example:
 > sudo -E cargo rr target/release/example
 ```
 
+## Run examples
+
+```
+sudo -E cargo rr 'target/release/examples/multisession' --debug
+```
 
 ## Debugging
 

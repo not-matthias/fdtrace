@@ -1,0 +1,1098 @@
+---
+source: fdtrace/src/syscall.rs
+expression: syscalls
+---
+[
+  {
+    "ts": 21197750001946,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750006966,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750008406,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750009190,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750009856,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750010780,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750012417,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750013725,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750014453,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750015072,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750015686,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750016552,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750017374,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750019524,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750020211,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750020778,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750021337,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750022224,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750036318,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750037293,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750037996,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750038662,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750039289,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/outpu..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750039968,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750040812,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/etc/ld..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750042024,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750042365,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/gl..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750043230,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750043851,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/gl..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750044382,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750044923,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750045646,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750046383,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750048112,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750048713,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750049227,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750049773,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750052431,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750052776,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 832
+      }
+    }
+  },
+  {
+    "ts": 21197750054156,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 832
+      }
+    }
+  },
+  {
+    "ts": 21197750073346,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750075228,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750076604,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750077832,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750078093,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/home/not-matthias/Documents/technical/git/syscall-tracer/targe..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750079003,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750079238,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/c1pfdwy1xgb80s7z66w3l7a7nkdvmfnw-rust-mixed/lib/rust..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750080146,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": -2
+      }
+    }
+  },
+  {
+    "ts": 21197750080494,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750081680,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750081926,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 832
+      }
+    }
+  },
+  {
+    "ts": 21197750082594,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 832
+      }
+    }
+  },
+  {
+    "ts": 21197750106083,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750107048,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750247373,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/proc/self/maps",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750262159,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750267478,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750274761,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750282905,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750286355,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750288772,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750291308,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750293104,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 1024
+      }
+    }
+  },
+  {
+    "ts": 21197750294269,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 417
+      }
+    }
+  },
+  {
+    "ts": 21197750295559,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750296892,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750307894,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/etc/hosts",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750312848,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 4
+      }
+    }
+  },
+  {
+    "ts": 21197750314022,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/etc/passwd",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750315283,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 5
+      }
+    }
+  },
+  {
+    "ts": 21197750315606,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAt": {
+        "dirfd": 4294967196,
+        "path": "/etc/hostname",
+        "flags": 524288
+      }
+    }
+  },
+  {
+    "ts": 21197750318115,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "OpenAtExit": {
+        "ret": 6
+      }
+    }
+  },
+  {
+    "ts": 21197750321291,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 62
+      }
+    }
+  },
+  {
+    "ts": 21197750322687,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 62
+      }
+    }
+  },
+  {
+    "ts": 21197750322906,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 4,
+        "count": 32
+      }
+    }
+  },
+  {
+    "ts": 21197750323095,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750324994,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 62
+      }
+    }
+  },
+  {
+    "ts": 21197750328294,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 62
+      }
+    }
+  },
+  {
+    "ts": 21197750329414,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 1
+      }
+    }
+  },
+  {
+    "ts": 21197750329807,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 1
+      }
+    }
+  },
+  {
+    "ts": 21197750331770,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 5,
+        "count": 4089
+      }
+    }
+  },
+  {
+    "ts": 21197750332500,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 4089
+      }
+    }
+  },
+  {
+    "ts": 21197750332681,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 5,
+        "count": 32
+      }
+    }
+  },
+  {
+    "ts": 21197750332894,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750333338,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 4151
+      }
+    }
+  },
+  {
+    "ts": 21197750333812,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 4151
+      }
+    }
+  },
+  {
+    "ts": 21197750334016,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 1
+      }
+    }
+  },
+  {
+    "ts": 21197750334730,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 1
+      }
+    }
+  },
+  {
+    "ts": 21197750336537,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 6,
+        "count": 4151
+      }
+    }
+  },
+  {
+    "ts": 21197750337055,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 7
+      }
+    }
+  },
+  {
+    "ts": 21197750337229,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Read": {
+        "fd": 6,
+        "count": 4144
+      }
+    }
+  },
+  {
+    "ts": 21197750337424,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "ReadExit": {
+        "read": 0
+      }
+    }
+  },
+  {
+    "ts": 21197750337683,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 4158
+      }
+    }
+  },
+  {
+    "ts": 21197750343984,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 4158
+      }
+    }
+  },
+  {
+    "ts": 21197750344266,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Write": {
+        "fd": 1,
+        "count": 1
+      }
+    }
+  },
+  {
+    "ts": 21197750344572,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "WriteExit": {
+        "written": 1
+      }
+    }
+  },
+  {
+    "ts": 21198750532596,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 6
+      }
+    }
+  },
+  {
+    "ts": 21198750536908,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  },
+  {
+    "ts": 21198750537187,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 5
+      }
+    }
+  },
+  {
+    "ts": 21198750537700,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  },
+  {
+    "ts": 21198750537823,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "Close": {
+        "fd": 4
+      }
+    }
+  },
+  {
+    "ts": 21198750538272,
+    "pid": 110089,
+    "tid": 110089,
+    "raw": {
+      "CloseExit": {
+        "ret": 0
+      }
+    }
+  }
+]

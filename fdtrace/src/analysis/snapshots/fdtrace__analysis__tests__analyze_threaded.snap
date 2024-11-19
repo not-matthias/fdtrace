@@ -1,0 +1,235 @@
+---
+source: fdtrace/src/analysis/mod.rs
+expression: analysis
+---
+{
+  "threads": {
+    "112654": {
+      "tid": 112654,
+      "files": {
+        "/etc/passwd": {
+          "sessions": [
+            {
+              "events": [],
+              "path": "/etc/passwd",
+              "open_ts": 21620722846684,
+              "close_ts": 21622723084889
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 21625723344820,
+                    "end_ts": 21625723349069
+                  }
+                }
+              ],
+              "path": "/etc/passwd",
+              "open_ts": 21622723096120,
+              "close_ts": 21625723351612
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 4089,
+                    "start_ts": 21625723389122,
+                    "end_ts": 21625723389414
+                  }
+                }
+              ],
+              "path": "/etc/passwd",
+              "open_ts": 21625723355169,
+              "close_ts": 21625723390043
+            }
+          ]
+        },
+        "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 21620722541222,
+                    "end_ts": 21620722542296
+                  }
+                }
+              ],
+              "path": "/nix/store/ddwyrxif62r8n6xclvskjyy6szdhvj60-glibc-2.39-5/lib/li..",
+              "open_ts": 21620722538585,
+              "close_ts": 21620722574857
+            }
+          ]
+        },
+        "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 832,
+                    "start_ts": 21620722487120,
+                    "end_ts": 21620722489067
+                  }
+                }
+              ],
+              "path": "/nix/store/rxganm4ibf31qngal3j3psp20mak37yy-xgcc-13.2.0-libgcc/..",
+              "open_ts": 21620722482544,
+              "close_ts": 21620722528070
+            }
+          ]
+        },
+        "/proc/self/maps": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21620722763221,
+                    "end_ts": 21620722771696
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21620722781171,
+                    "end_ts": 21620722786782
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 1024,
+                    "start_ts": 21620722790803,
+                    "end_ts": 21620722793889
+                  }
+                },
+                {
+                  "Read": {
+                    "bytes": 401,
+                    "start_ts": 21620722796614,
+                    "end_ts": 21620722797904
+                  }
+                }
+              ],
+              "path": "/proc/self/maps",
+              "open_ts": 21620722741903,
+              "close_ts": 21620722799892
+            }
+          ]
+        }
+      }
+    },
+    "112655": {
+      "tid": 112655,
+      "files": {
+        "/etc/hosts": {
+          "sessions": [
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21622223531309,
+                    "end_ts": 21622223541107
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21621723191093,
+              "close_ts": 21622223543505
+            },
+            {
+              "events": [],
+              "path": "/etc/hosts",
+              "open_ts": 21622223547570,
+              "close_ts": 21622723812825
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21623224108870,
+                    "end_ts": 21623224118361
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21622723819165,
+              "close_ts": 21623224120644
+            },
+            {
+              "events": [],
+              "path": "/etc/hosts",
+              "open_ts": 21623224125155,
+              "close_ts": 21623724445428
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21624224690138,
+                    "end_ts": 21624224696121
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21623724454218,
+              "close_ts": 21624224698622
+            },
+            {
+              "events": [],
+              "path": "/etc/hosts",
+              "open_ts": 21624224702692,
+              "close_ts": 21624724965943
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21625225247696,
+                    "end_ts": 21625225254845
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21624724974589,
+              "close_ts": 21625225256726
+            },
+            {
+              "events": [],
+              "path": "/etc/hosts",
+              "open_ts": 21625225259894,
+              "close_ts": 21625725393470
+            },
+            {
+              "events": [
+                {
+                  "Read": {
+                    "bytes": 62,
+                    "start_ts": 21626225690048,
+                    "end_ts": 21626225699403
+                  }
+                }
+              ],
+              "path": "/etc/hosts",
+              "open_ts": 21625725400944,
+              "close_ts": 21626225701599
+            },
+            {
+              "events": [],
+              "path": "/etc/hosts",
+              "open_ts": 21626225705557,
+              "close_ts": 21626725966222
+            }
+          ]
+        }
+      }
+    }
+  }
+}
