@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [Rust](https://www.rust-lang.org/tools/install)
+- [Nightly Rust](https://www.rust-lang.org/tools/install)
 - [bpftrace](https://bpftrace.org/): `sudo apt install -y bpftrace`
 - Linux Kernel > 4.7 (for `bpftrace` tracepoint support)
 
