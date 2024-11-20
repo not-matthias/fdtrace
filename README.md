@@ -1,10 +1,16 @@
 # fdtrace
 
+File system call tracer using using `bpftrace` and analysis.
+2
 ## Prerequisites
 
 - [Nightly Rust](https://www.rust-lang.org/tools/install)
-- [bpftrace](https://bpftrace.org/): `sudo apt install -y bpftrace`
+- [bpftrace](https://bpftrace.org/): `sudo apt install -y bpftrace` for Ubuntu 19.04 and later
 - Linux Kernel > 4.7 (for `bpftrace` tracepoint support)
+
+Optional:
+- [Devenv.sh](https://devenv.sh/) for a reproducible development environment
+- [cargo-insta](https://crates.io/crates/cargo-insta): To review tests.
 
 ## Run
 
