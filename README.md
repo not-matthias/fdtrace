@@ -1,7 +1,7 @@
 # fdtrace
 
 File system call tracer using using `bpftrace` and analysis.
-2
+
 ## Prerequisites
 
 - [Nightly Rust](https://www.rust-lang.org/tools/install)
