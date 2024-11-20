@@ -10,7 +10,7 @@ impl BpfTracer {
     pub fn trace(program: &Path) -> anyhow::Result<Self> {
         let script = {
             let mut file = NamedTempFile::new()?;
-            writeln!(file, "{}", include_str!("../scripts/fdtrace.bt"))?;
+            writeln!(file, "{}", include_str!("../data/fdtrace.bt"))?;
             file
         };
 
